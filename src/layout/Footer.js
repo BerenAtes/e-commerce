@@ -4,9 +4,9 @@ import FooterInformation from "../components/FooterInformation";
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className=" text-left">
       <div className="bg-bgclr-ligth-gray-1">
-        <div className="flex justify-between  py-10 container-small">
+        <div className=" flex justify-between  py-10 container-small items-center container">
           <BrandName />
           <div>
             <i> facebook</i>
@@ -17,7 +17,7 @@ export default function Footer() {
       </div>
 
       <div>
-        <div className="flex justify-between">
+        <div className="flex justify-between container-small py-[3rem] mb-[6rem]">
           <FooterInformation
             title="Company Info"
             items={["About Us", "Carrier", "We are haring", "Blog"]}
@@ -40,6 +40,11 @@ export default function Footer() {
             items={["IOS & Android", "Watch a Demo", "Customers", "API"]}
           />
           <FooterContactBox />
+        </div>
+      </div>
+      <div className="bg-bgclr-ligth-gray-1">
+        <div className=" container-small text-clr-second font-bold text-[1rem] py-[2rem] text-left">
+          Made With Love By Finland All Righ
         </div>
       </div>
     </footer>

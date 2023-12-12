@@ -1,7 +1,7 @@
 export default function FooterContactBox() {
   return (
     <div>
-      <h5 className="font-bold text-clr-dark mb-8">Get In Touch</h5>
+      <h5 className="font-bold text-clr-dark mb-4">Get In Touch</h5>
       <div className="border-[1px]  overflow-hidden  rounded-[7px] border-[#E6E6E6]">
         <input
           className="py-[1rem] px-[1.3rem]  "

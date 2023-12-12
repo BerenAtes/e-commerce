@@ -52,15 +52,15 @@
 }
 
 .container-small {
-  @apply container-common max-w-[1050px];
+  @apply container-common max-w-[1024px];
 }
 
 .container-medium {
-  @apply container-common max-w-[1200px];
+  @apply container-common max-w-[1280px];
 }
 
 .container-big {
-  @apply container-common max-w-[1440px];
+  @apply container-common max-w-[1536px];
 }
 
 .btn-md {

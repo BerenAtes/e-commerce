@@ -1,4 +1,5 @@
 import BrandName from "../components/BrandName";
+import FooterContactBox from "../components/FooterContactBox";
 import FooterInformation from "../components/FooterInformation";
 
 export default function Footer() {
@@ -38,6 +39,7 @@ export default function Footer() {
             title="Resources"
             items={["IOS & Android", "Watch a Demo", "Customers", "API"]}
           />
+          <FooterContactBox />
         </div>
       </div>
     </footer>

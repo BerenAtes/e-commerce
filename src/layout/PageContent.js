@@ -9,6 +9,9 @@ export default function PageContent() {
         <Home />
       </Route>
       <Route path="/">
+        <Home />
+      </Route>
+      <Route path="/">
         <Redirect to="/home" />
       </Route>
     </Switch>

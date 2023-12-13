@@ -1,10 +1,10 @@
-export default function ProductCard({ urlImage, className }) {
+export default function ProductCard({ imgUrl, className }) {
   return (
     <div className={className}>
-      <div>
-        <img />
+      <div className="w-full relative  aspect-[56/100]">
+        <img src={imgUrl} className="img-absolute" alt="img-product" />
       </div>
-      <div>
+      <div className="flex flex-col grow gap-y-[0.625rem]">
         <h5>Graphic Design</h5>
         <span>English Department</span>
         <div>

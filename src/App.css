@@ -7,12 +7,6 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -26,21 +20,6 @@
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
 }
 
 .img-absolute {
@@ -61,40 +40,4 @@
 
 .container-big {
   @apply container-common max-w-[1536px];
-}
-
-.btn-md {
-  @apply py-[0.75em] px-[2em] text-[1.25rem] rounded-[5px];
-}
-
-.btn-small-wide {
-  @apply py-[1.07em] px-[2.86em] text-[0.875rem] rounded-[5px];
-}
-
-.btn-small {
-  @apply py-[0.714em] px-[1.43em] text-[0.875rem] rounded-[5px];
-}
-
-.btn-success {
-  @apply text-clr-light bg-bgclr-success;
-}
-
-.btn-primary {
-  @apply text-clr-light bg-bgclr-primary;
-}
-
-.btn-primary-outline {
-  @apply text-clr-primary border-[1px] border-clr-primary;
-}
-
-.btn-light-outline-transparent {
-  @apply text-clr-light border-[1px] border-clr-light;
-}
-
-.btn-success-outline {
-  @apply text-clr-success bg-bgclr-light border-[1px] border-clr-success;
-}
-
-.pill-shape {
-  @apply rounded-[50rem];
 }

@@ -72,13 +72,14 @@ export default function Header() {
           </ul>
           <ul className="flex row nowrap font-bold text-clr-primary gap-x-[2rem] mr-2">
             <li>
-              <TextAndIcon
-                imgUrl={login}
-                text=" Login "
-                classText="text-[1rem] font-bold "
-                className="flex row nowrap"
-              />
-              /<span>Register</span>
+              <span className="flex items-center ">
+                <TextAndIcon
+                  imgUrl={login}
+                  classText="text-[1rem] font-bold "
+                  className="flex row nowrap"
+                />
+                <span>Login/Register</span>{" "}
+              </span>
             </li>
             <li className="pt-[.5rem]">
               <TextAndIcon imgUrl={search} />

@@ -2,6 +2,19 @@ import { NavLink } from "react-router-dom/cjs/react-router-dom";
 import TextAndIcon from "../components/TextAndIcon";
 import BrandName from "../components/BrandName";
 
+import telephone from "../assets/icons/telephone.svg";
+import mail from "../assets/icons/mail.svg";
+
+import insta from "../assets/icons/insta.svg";
+import youtube from "../assets/icons/youtube.svg";
+import facebook from "../assets/icons/facebook.svg";
+import twitter from "../assets/icons/twitter.svg";
+
+import login from "../assets/icons/login.svg";
+import search from "../assets/icons/search.svg";
+import shop from "../assets/icons/shop.svg";
+import like from "../assets/icons/like.svg";
+
 export default function Header() {
   return (
     <header className="">
@@ -11,13 +24,13 @@ export default function Header() {
             <TextAndIcon
               className="flex items-center "
               classText="text-[0.875rem] font-bold"
-              classIcon=""
+              imgUrl={telephone}
               text="(225) 555-0118"
             />
             <TextAndIcon
               className="flex items-center "
               classText="text-[0.875rem] font-bold"
-              classIcon=""
+              imgUrl={mail}
               text="michelle.rivera@example.com"
             />
           </div>
@@ -26,16 +39,16 @@ export default function Header() {
           </span>
           <span className="flex items-center gap-[1rem]">
             <span className="text-[0.875rem] font-bold">Follow Us :</span>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
+            <TextAndIcon imgUrl={insta} />
+            <TextAndIcon imgUrl={youtube} />
+            <TextAndIcon imgUrl={facebook} />
+            <TextAndIcon imgUrl={twitter} />
           </span>
         </nav>
       </div>
       <div className="container-big px-[1em] py-[1.5em] flex gap-x-[2.5rem] items-center">
         <BrandName />
-        <nav className="grow flex justify-between">
+        <nav className="grow flex  justify-between">
           <ul className="flex text-clr-second gap-6 font-bold ">
             <li>
               <NavLink to="/home">Home</NavLink>
@@ -57,18 +70,26 @@ export default function Header() {
               <NavLink to="#">Pages</NavLink>
             </li>
           </ul>
-          <ul className="flex font-bold text-clr-primary gap-x-[2rem]">
+          <ul className="flex row nowrap font-bold text-clr-primary gap-x-[2rem] mr-2">
             <li>
-              <TextAndIcon classIcon="" text=" Login " />/<span>Register</span>
+              <TextAndIcon
+                imgUrl={login}
+                text=" Login "
+                classText="text-[1rem] font-bold "
+                className="flex row nowrap"
+              />
+              /<span>Register</span>
             </li>
-            <li>
-              <i className=""></i>
+            <li className="pt-[.5rem]">
+              <TextAndIcon imgUrl={search} />
             </li>
-            <li>
-              <TextAndIcon classIcon="" text=" 1" />
+            <li className="flex items-center ">
+              <TextAndIcon classText="text-xl mr-2" imgUrl={shop} />
+              <span className="text-lg pb-[1.5rem]">1</span>
             </li>
-            <li>
-              <TextAndIcon classIcon="" text=" 1" />
+            <li className="flex items-center ">
+              <TextAndIcon classText="text-xl mr-2 " imgUrl={like} />
+              <span className="text-lg pb-[1.5rem]">1</span>
             </li>
           </ul>
         </nav>

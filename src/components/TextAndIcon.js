@@ -1,7 +1,7 @@
-export default function TextAndIcon({ icon, text, classText, ...rest }) {
+export default function TextAndIcon({ imgUrl, text, classText, ...rest }) {
   return (
     <span {...rest}>
-      <i className={icon} />
+      <img className="pr-[.5rem]" src={imgUrl} alt="icon" />
       <span className={classText}> {text} </span>
     </span>
   );

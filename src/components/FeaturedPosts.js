@@ -1,5 +1,9 @@
 import TextAndIcon from "./TextAndIcon";
 
+import time from "../assets/icons/time.svg";
+import comments from "../assets/icons/comments.svg";
+import ok from "../assets/icons/ok.svg";
+
 export default function FeaturedPosts({ imgUrl, className }) {
   return (
     <div className={className}>
@@ -19,20 +23,26 @@ export default function FeaturedPosts({ imgUrl, className }) {
           We focus on ergonomics and meeting you where you work. It's only a
           keystroke away.
         </p>
-        <div className="flex justify-between">
+        <span className="flex items-center gap-1">
+          <TextAndIcon className="text-[12px] text-clr-second" imgUrl={time} />
+          <span className=" text-[12px] text-clr-second pr-[4rem] ">
+            22 April 2021
+          </span>
           <TextAndIcon
-            text="22 April 2021"
             className="text-[12px] text-clr-second"
+            imgUrl={comments}
           />
+          <span className=" text-[12px] text-clr-second ">10 Comments</span>
+        </span>
+
+        <span className="flex items-center gap-[1rem]">
+          {" "}
+          <span className="text-lg ">Learn More</span>
           <TextAndIcon
-            text="10 comments"
             className="text-[12px] text-clr-second"
-          />
-        </div>
-        <div>
-          <span>Learn More</span>
-          <i></i>
-        </div>
+            imgUrl={ok}
+          />{" "}
+        </span>
       </div>
     </div>
   );

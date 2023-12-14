@@ -1,6 +1,11 @@
 import BrandName from "../components/BrandName";
 import FooterContactBox from "../components/FooterContactBox";
 import FooterInformation from "../components/FooterInformation";
+import TextAndIcon from "../components/TextAndIcon";
+
+import twitterfooter from "../assets/icons/twitterfooter.svg";
+import facefooter from "../assets/icons/facefooter.svg";
+import instafooter from "../assets/icons/instafooter.svg";
 
 export default function Footer() {
   return (
@@ -9,9 +14,11 @@ export default function Footer() {
         <div className=" flex justify-between  py-10 container-small items-center container">
           <BrandName />
           <div>
-            <i> facebook</i>
-            <i> insta</i>
-            <i> twitter</i>
+            <span className="flex items-center gap-[1rem]">
+              <TextAndIcon imgUrl={facefooter} />
+              <TextAndIcon imgUrl={instafooter} />
+              <TextAndIcon imgUrl={twitterfooter} />
+            </span>
           </div>
         </div>
       </div>

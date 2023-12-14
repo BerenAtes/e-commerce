@@ -1,5 +1,3 @@
-import data from "../data";
-
 export default function ProductCard({ imgUrl, className }) {
   return (
     <div className={className}>

@@ -5,6 +5,25 @@ import PagesPath from "../components/PagesPath";
 import clothies from "../assets/productList/logos/cloths.svg";
 import product from "../assets/productList/logos/product.svg";
 
+import clothes from "../assets/productList/cloths/cloths1.svg";
+import clothes2 from "../assets/productList/cloths/cloths2.svg";
+import clothes3 from "../assets/productList/cloths/cloths3.svg";
+import clothes4 from "../assets/productList/cloths/123.svg";
+import clothes5 from "../assets/productList/cloths/cloths5.svg";
+
+import shop1 from "../assets/productList/shop/1.png";
+import shop2 from "../assets/productList/shop/2.png";
+import shop3 from "../assets/productList/shop/3.png";
+import shop4 from "../assets/productList/shop/4.png";
+import shop5 from "../assets/productList/shop/5.png";
+import shop6 from "../assets/productList/shop/6.png";
+import shop7 from "../assets/productList/shop/7.png";
+import shop8 from "../assets/productList/shop/8.png";
+import shop9 from "../assets/productList/shop/9.png";
+import shop10 from "../assets/productList/shop/10.png";
+import shop11 from "../assets/productList/shop/11.png";
+import shop12 from "../assets/productList/shop/12.png";
+
 export default function ProductList() {
   return (
     <>
@@ -15,18 +34,37 @@ export default function ProductList() {
             <PagesPath />
           </div>
 
-          <div className="flex  justify-between gap-x-[1rem] ">
-            {Array(5)
-              .fill(1)
-              .map((item, idx) => (
-                <ProductListCard
-                  className="basis-[206px] grow relative "
-                  key={idx}
-                  imgUrl={clothies}
-                  title="CLOTHS"
-                  text="5 Items"
-                />
-              ))}
+          <div className="flex  justify-between gap-x-[1rem] relative ">
+            <ProductListCard
+              className="basis-[206px] grow relative absolute "
+              imgUrl={clothes}
+              title="CLOTHS"
+              text="5 Items"
+            />
+            <ProductListCard
+              className="basis-[206px] grow relative "
+              imgUrl={clothes2}
+              title="CLOTHS"
+              text="5 Items"
+            />
+            <ProductListCard
+              className="basis-[206px] grow relative "
+              imgUrl={clothes3}
+              title="CLOTHS"
+              text="5 Items"
+            />
+            <ProductListCard
+              className="basis-[206px] grow relative "
+              imgUrl={clothes4}
+              title="CLOTHS"
+              text="5 Items"
+            />
+            <ProductListCard
+              className="basis-[206px] grow relative "
+              imgUrl={clothes5}
+              title="CLOTHS"
+              text="5 Items"
+            />
           </div>
         </section>
       </div>
@@ -56,17 +94,54 @@ export default function ProductList() {
             </div>
           </div>
           <div className="  my-[5rem] flex flex-wrap gap-y-[1rem] gap-x-[2rem]">
-            {Array(12)
-              .fill(1)
-              .map((item, idx) => {
-                return (
-                  <ProductCard
-                    key={idx}
-                    className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
-                    imgUrl={product}
-                  />
-                );
-              })}
+            <ProductCard
+              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              imgUrl={shop1}
+            />
+            <ProductCard
+              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              imgUrl={shop2}
+            />
+            <ProductCard
+              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              imgUrl={shop3}
+            />
+            <ProductCard
+              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              imgUrl={shop4}
+            />
+            <ProductCard
+              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              imgUrl={shop5}
+            />
+            <ProductCard
+              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              imgUrl={shop6}
+            />
+            <ProductCard
+              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              imgUrl={shop7}
+            />
+            <ProductCard
+              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              imgUrl={shop8}
+            />
+            <ProductCard
+              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              imgUrl={shop9}
+            />
+            <ProductCard
+              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              imgUrl={shop10}
+            />
+            <ProductCard
+              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              imgUrl={shop11}
+            />
+            <ProductCard
+              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              imgUrl={shop12}
+            />
           </div>
         </section>
       </div>

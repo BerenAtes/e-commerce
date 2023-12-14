@@ -11,8 +11,18 @@ import accessoriesImg from "../assets/categories/accessoriesImg.svg";
 import winterclothes from "../assets/winterclothes.svg";
 
 import featuredimg1 from "../assets/featuredPosts/img1.svg";
+import featuredimg2 from "../assets/featuredPosts/img2.svg";
+import featuredimg3 from "../assets/featuredPosts/img3.svg";
 
 import productimg from "../assets/ProductCard/img1.png";
+import productimg2 from "../assets/ProductCard/img2.png";
+import productimg3 from "../assets/ProductCard/img3.png";
+import productimg4 from "../assets/ProductCard/img4.png";
+import productimg5 from "../assets/ProductCard/img5.png";
+import productimg6 from "../assets/ProductCard/img6.png";
+import productimg7 from "../assets/ProductCard/img7.png";
+import productimg8 from "../assets/ProductCard/img8.png";
+
 import HomeSlider from "../utils/slider1";
 import HomeBottomSlider from "../utils/slider2";
 
@@ -69,11 +79,14 @@ export default function Home() {
           Problems trying to resolve the conflict between{" "}
         </p>
         <div className="py-[5rem] flex flex-wrap gap-y-[5rem] gap-x-[1.875rem]  justify-start ">
-          {Array(8)
-            .fill(2)
-            .map((item, idx) => (
-              <ProductCard key={idx} imgUrl={productimg} />
-            ))}
+          <ProductCard imgUrl={productimg} />
+          <ProductCard imgUrl={productimg2} />
+          <ProductCard imgUrl={productimg3} />
+          <ProductCard imgUrl={productimg4} />
+          <ProductCard imgUrl={productimg5} />
+          <ProductCard imgUrl={productimg6} />
+          <ProductCard imgUrl={productimg7} />
+          <ProductCard imgUrl={productimg8} />
         </div>
       </section>
       <section>
@@ -120,15 +133,18 @@ export default function Home() {
           of Classical physics: Newtonian mechanics{" "}
         </p>
         <div className="flex justify-between gap-x-[0.5rem]">
-          {Array(3)
-            .fill(1)
-            .map((item, idx) => (
-              <FeaturedPosts
-                className=" border-2 pb-[1.5rem] base-[350px]"
-                key={idx}
-                imgUrl={featuredimg1}
-              />
-            ))}
+          <FeaturedPosts
+            className=" border-2 pb-[1.5rem] base-[350px]"
+            imgUrl={featuredimg1}
+          />
+          <FeaturedPosts
+            className=" border-2 pb-[1.5rem] base-[350px]"
+            imgUrl={featuredimg2}
+          />
+          <FeaturedPosts
+            className=" border-2 pb-[1.5rem] base-[350px]"
+            imgUrl={featuredimg3}
+          />
         </div>
       </section>
     </>

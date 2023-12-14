@@ -2,8 +2,6 @@ import Logos from "../components/Logos";
 import ProductCard from "../components/ProductCard";
 import ProductListCard from "../components/ProductListCard";
 import PagesPath from "../components/PagesPath";
-import clothies from "../assets/productList/logos/cloths.svg";
-import product from "../assets/productList/logos/product.svg";
 
 import clothes from "../assets/productList/cloths/cloths1.svg";
 import clothes2 from "../assets/productList/cloths/cloths2.svg";
@@ -93,53 +91,53 @@ export default function ProductList() {
               </button>
             </div>
           </div>
-          <div className="  my-[5rem] flex flex-wrap gap-y-[1rem] gap-x-[2rem]">
+          <div className=" gap-y-[5rem] my-[5rem] py-4  flex flex-wrap gap-x-[2rem]">
             <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              className="  basis-[200px] h-[300px] w-[239px] mb-[5rem]"
               imgUrl={shop1}
             />
             <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              className="basis-[200px] h-[300px] w-[239px] mb-[8rem]"
               imgUrl={shop2}
             />
             <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              className="basis-[200px] h-[300px] w-[239px] mb-[8rem]"
               imgUrl={shop3}
             />
             <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              className="basis-[200px] h-[300px] w-[239px] mb-[8rem]"
               imgUrl={shop4}
             />
             <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              className="basis-[200px] h-[300px] w-[239px] mb-[8rem]"
               imgUrl={shop5}
             />
             <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              className="basis-[200px] h-[300px] w-[239px] mb-[8rem]"
               imgUrl={shop6}
             />
             <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              className="basis-[200px] h-[300px] w-[239px] mb-[8rem]"
               imgUrl={shop7}
             />
             <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              className="basis-[200px] h-[300px] w-[239px] mb-[8rem]"
               imgUrl={shop8}
             />
             <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              className="basis-[200px] h-[300px] w-[239px] mb-[8rem]"
               imgUrl={shop9}
             />
             <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              className="basis-[200px] h-[300px] w-[239px] mb-[8rem]"
               imgUrl={shop10}
             />
             <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              className="basis-[200px] h-[300px] w-[239px] mb-[8rem]"
               imgUrl={shop11}
             />
             <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[25rem]"
+              className="basis-[200px] h-[300px] w-[239px] mb-[8rem]"
               imgUrl={shop12}
             />
           </div>

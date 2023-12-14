@@ -26,6 +26,15 @@
   @apply h-full w-full object-cover absolute translate-x-1/2 right-1/2;
 }
 
+.btn-success {
+  @apply text-clr-light bg-bgclr-success;
+}
+.btn-success-outline {
+  @apply text-clr-success bg-bgclr-light border-[1px] border-clr-success;
+}
+.btn-md {
+  @apply py-[0.75em] px-[2em] text-[1.25rem] rounded-[5px];
+}
 .container-common {
   @apply my-0 mx-auto;
 }

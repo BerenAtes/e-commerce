@@ -115,7 +115,7 @@ export default function Home() {
                   BUY NOW
                 </Link>
                 <Link
-                  className="btn-success-outline inline-block btn-md text-[14px] "
+                  className="btn-success-outline inline-block btn-md text-[14px]  "
                   to="#"
                 >
                   READ MORE

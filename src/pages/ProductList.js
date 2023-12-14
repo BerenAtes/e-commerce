@@ -15,12 +15,12 @@ export default function ProductList() {
             <PagesPath />
           </div>
 
-          <div className="flex justify-between gap-x-[1rem] ">
+          <div className="flex  justify-between gap-x-[1rem] ">
             {Array(5)
               .fill(1)
               .map((item, idx) => (
                 <ProductListCard
-                  className="basis-[206px] grow "
+                  className="basis-[206px] grow relative "
                   key={idx}
                   imgUrl={clothies}
                   title="CLOTHS"

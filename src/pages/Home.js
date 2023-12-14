@@ -12,7 +12,7 @@ import winterclothes from "../assets/winterclothes.svg";
 
 import featuredimg1 from "../assets/featuredPosts/img1.svg";
 
-import productimg from "../assets/ProductCard/productimg.png";
+import productimg from "../assets/ProductCard/img1.png";
 import HomeSlider from "../utils/slider1";
 import HomeBottomSlider from "../utils/slider2";
 
@@ -46,7 +46,7 @@ export default function Home() {
           </div>
           <div className=" relative basis-[239px] flex flex-wrap gap-y-[1rem]">
             <CategoryCard
-              className="basis-[239px]"
+              className="relative basis-[239px]"
               imgUrl={accessoriesImg}
               textBtn={"ACCESORIES"}
             />

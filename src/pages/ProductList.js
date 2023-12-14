@@ -2,6 +2,7 @@ import Logos from "../components/Logos";
 import ProductCard from "../components/ProductCard";
 import ProductListCard from "../components/ProductListCard";
 import PagesPath from "../components/PagesPath";
+import TextAndIcon from "../components/TextAndIcon";
 
 import clothes from "../assets/productList/cloths/cloths1.svg";
 import clothes2 from "../assets/productList/cloths/cloths2.svg";
@@ -21,6 +22,15 @@ import shop9 from "../assets/productList/shop/9.png";
 import shop10 from "../assets/productList/shop/10.png";
 import shop11 from "../assets/productList/shop/11.png";
 import shop12 from "../assets/productList/shop/12.png";
+
+import views1 from "../assets/icons/views1.svg";
+import views2 from "../assets/icons/views2.svg";
+
+import first from "../assets/icons/First.svg";
+import btn1 from "../assets/icons/1btn.svg";
+import btn2 from "../assets/icons/2btn.svg";
+import btn3 from "../assets/icons/3btn.svg";
+import next from "../assets/icons/Next.svg";
 
 export default function ProductList() {
   return (
@@ -75,8 +85,14 @@ export default function ProductList() {
             </div>
             <div className="flex items-center gap-x-[1rem]">
               <span className="text-[0.875rem] font-bold">Views:</span>
-              <i className="p-[1rem] rounded-[5px] border-[1px] border-clr-light-gray-2 text-clr-dark fa-solid fa-border-all"></i>
-              <i className="p-[1rem] rounded-[5px] border-[1px] border-clr-light-gray-2 text-clr-dark fa-solid fa-list-ul"></i>
+              <TextAndIcon
+                className="text-[12px] text-clr-second"
+                imgUrl={views1}
+              />
+              <TextAndIcon
+                className="text-[12px] text-clr-second"
+                imgUrl={views2}
+              />
             </div>
             <div className="flex">
               <select
@@ -85,6 +101,8 @@ export default function ProductList() {
                 id="cars"
               >
                 <option value="Popularity">Popularity</option>
+                <option value="Price High-Low">Price High-Low</option>
+                <option value="Price Low-High">Price Low-High</option>
               </select>
               <button className="font-bold btn-small btn-primary text-[0.875rem]">
                 Filter
@@ -141,6 +159,14 @@ export default function ProductList() {
               imgUrl={shop12}
             />
           </div>
+
+          <span className="flex items-center justify-center    ">
+            <TextAndIcon classText="text-xl   " imgUrl={first} />
+            <TextAndIcon classText="text-xl  " imgUrl={btn1} />
+            <TextAndIcon classText="text-xl  " imgUrl={btn2} />
+            <TextAndIcon classText="text-xl  " imgUrl={btn3} />
+            <TextAndIcon classText="text-xl  " imgUrl={next} />
+          </span>
         </section>
       </div>
       <Logos />

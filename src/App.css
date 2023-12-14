@@ -38,6 +38,12 @@
 .container-common {
   @apply my-0 mx-auto;
 }
+.btn-primary {
+  @apply text-clr-light bg-bgclr-primary;
+}
+.btn-small {
+  @apply py-[0.714em] px-[1.43em] text-[0.875rem] rounded-[5px];
+}
 
 .container-small {
   @apply container-common max-w-[1024px];

@@ -1,5 +1,8 @@
 import { useLocation, Link } from "react-router-dom/cjs/react-router-dom";
 import { getClassName } from "../utils/ClassName";
+import TextAndIcon from "../components/TextAndIcon";
+
+import homeok from "../assets/icons/homeok.svg";
 
 export default function Path({ className }) {
   const { pathname } = useLocation();
@@ -12,14 +15,16 @@ export default function Path({ className }) {
       );
     });
 
-  const classesDefault = "flex items-center gap-x-[1rem]";
+  const classesDefault = "flex items-center gap-x-[.8rem]";
 
   return (
     <div className={getClassName(classesDefault, className)}>
-      <Link to="/home" className="text-clr-dark text-[0.875rem] font-bold">
-        Home
-      </Link>
-      <i className="text-clr-muted fa-solid fa-chevron-right"></i>
+      <span className="flex items-center gap-[1rem] ">
+        <Link to="/home" className="text-clr-dark text-[0.875rem] font-bold">
+          Home
+        </Link>
+        <TextAndIcon imgUrl={homeok} />
+      </span>
 
       {arrLocation.map((item, idx) => {
         if (idx < arrLocation.length - 1) {

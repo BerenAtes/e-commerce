@@ -23,14 +23,14 @@ import productimg6 from "../assets/ProductCard/img6.png";
 import productimg7 from "../assets/ProductCard/img7.png";
 import productimg8 from "../assets/ProductCard/img8.png";
 
-import HomeSlider from "../utils/slider1";
-import HomeBottomSlider from "../utils/slider2";
+import HomeSlider1 from "../utils/slider1";
+import HomeSlider2 from "../utils/slider2";
 
 export default function Home() {
   return (
     <>
       <section>
-        <HomeSlider />
+        <HomeSlider1 />
       </section>
       <section className="text-center container-small py-[5em]">
         <h2 className="mb-[0.625rem] text-clr-dark text-[1.5rem] font-bold">
@@ -90,7 +90,7 @@ export default function Home() {
         </div>
       </section>
       <section>
-        <HomeBottomSlider />{" "}
+        <HomeSlider2 />{" "}
       </section>
 
       <section className="max-w-[1248px] m-auto pb-[8rem]">

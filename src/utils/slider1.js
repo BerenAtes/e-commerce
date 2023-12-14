@@ -7,7 +7,7 @@ export default function HomeSlider() {
   return (
     <AwesomeSlider
       style={{
-        "--slider-height-percentage": "47%",
+        "--slider-height-percentage": "77%",
       }}
     >
       <div className="relative aspect-[2/1] text-clr-light">

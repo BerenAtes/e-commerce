@@ -22,7 +22,7 @@
   color: #61dafb;
 }
 
-.img-absolute {
+.img-main {
   @apply h-full w-full object-cover absolute translate-x-1/2 right-1/2;
 }
 

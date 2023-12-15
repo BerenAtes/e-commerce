@@ -1,6 +1,6 @@
 import { useLocation, Link } from "react-router-dom/cjs/react-router-dom";
 import { getClassName } from "../utils/ClassName";
-import TextAndIcon from "../components/TextAndIcon";
+import IconIcon from "./Icon";
 
 import homeok from "../assets/icons/homeok.svg";
 
@@ -23,7 +23,7 @@ export default function Path({ className }) {
         <Link to="/home" className="text-clr-dark text-[0.875rem] font-bold">
           Home
         </Link>
-        <TextAndIcon imgUrl={homeok} />
+        <IconIcon imgUrl={homeok} />
       </span>
 
       {arrLocation.map((item, idx) => {

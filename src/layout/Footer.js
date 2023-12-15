@@ -1,7 +1,7 @@
 import BrandName from "../components/BrandName";
 import FooterContactBox from "../components/FooterContactBox";
 import FooterInformation from "../components/FooterInformation";
-import TextAndIcon from "../components/TextAndIcon";
+import Icon from "../components/Icon";
 
 import twitterfooter from "../assets/icons/twitterfooter.svg";
 import facefooter from "../assets/icons/facefooter.svg";
@@ -15,9 +15,9 @@ export default function Footer() {
           <BrandName />
           <div>
             <span className="flex items-center gap-[1rem]">
-              <TextAndIcon imgUrl={facefooter} />
-              <TextAndIcon imgUrl={instafooter} />
-              <TextAndIcon imgUrl={twitterfooter} />
+              <Icon imgUrl={facefooter} />
+              <Icon imgUrl={instafooter} />
+              <Icon imgUrl={twitterfooter} />
             </span>
           </div>
         </div>

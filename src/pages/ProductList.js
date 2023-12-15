@@ -2,7 +2,7 @@ import Logos from "../components/Logos";
 import ProductCard from "../components/ProductCard";
 import ProductListCard from "../components/ProductListCard";
 import PagesPath from "../components/PagesPath";
-import TextAndIcon from "../components/TextAndIcon";
+import IconIcon from "../components/Icon";
 
 import clothes from "../assets/productList/cloths/cloths1.svg";
 import clothes2 from "../assets/productList/cloths/cloths2.svg";
@@ -85,11 +85,11 @@ export default function ProductList() {
             </div>
             <div className="flex items-center gap-x-[1rem]">
               <span className="text-[0.875rem] font-bold">Views:</span>
-              <TextAndIcon
+              <IconIcon
                 className="text-[12px] text-clr-second"
                 imgUrl={views1}
               />
-              <TextAndIcon
+              <IconIcon
                 className="text-[12px] text-clr-second"
                 imgUrl={views2}
               />
@@ -161,11 +161,11 @@ export default function ProductList() {
           </div>
 
           <span className="flex items-center justify-center    ">
-            <TextAndIcon classText="text-xl   " imgUrl={first} />
-            <TextAndIcon classText="text-xl  " imgUrl={btn1} />
-            <TextAndIcon classText="text-xl  " imgUrl={btn2} />
-            <TextAndIcon classText="text-xl  " imgUrl={btn3} />
-            <TextAndIcon classText="text-xl  " imgUrl={next} />
+            <IconIcon classText="text-xl   " imgUrl={first} />
+            <IconIcon classText="text-xl  " imgUrl={btn1} />
+            <IconIcon classText="text-xl  " imgUrl={btn2} />
+            <IconIcon classText="text-xl  " imgUrl={btn3} />
+            <IconIcon classText="text-xl  " imgUrl={next} />
           </span>
         </section>
       </div>

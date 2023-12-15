@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom/cjs/react-router-dom";
-import TextAndIcon from "../components/TextAndIcon";
+import IconIcon from "../components/Icon";
 import BrandName from "../components/BrandName";
 
 import telephone from "../assets/icons/telephone.svg";
@@ -21,13 +21,13 @@ export default function Header() {
       <div className="bg-bgclr-dark text-clr-light ">
         <nav className="container-big py-[1.5em] px-[1em] flex justify-between items-center">
           <div className="flex gap-[1.875rem]">
-            <TextAndIcon
+            <IconIcon
               className="flex items-center "
               classText="text-[0.875rem] font-bold"
               imgUrl={telephone}
               text="(225) 555-0118"
             />
-            <TextAndIcon
+            <IconIcon
               className="flex items-center "
               classText="text-[0.875rem] font-bold"
               imgUrl={mail}
@@ -39,10 +39,10 @@ export default function Header() {
           </span>
           <span className="flex items-center gap-[1rem]">
             <span className="text-[0.875rem] font-bold">Follow Us :</span>
-            <TextAndIcon imgUrl={insta} />
-            <TextAndIcon imgUrl={youtube} />
-            <TextAndIcon imgUrl={facebook} />
-            <TextAndIcon imgUrl={twitter} />
+            <IconIcon imgUrl={insta} />
+            <IconIcon imgUrl={youtube} />
+            <IconIcon imgUrl={facebook} />
+            <IconIcon imgUrl={twitter} />
           </span>
         </nav>
       </div>
@@ -73,7 +73,7 @@ export default function Header() {
           <ul className="flex row nowrap font-bold text-clr-primary gap-x-[2rem] mr-2">
             <li>
               <span className="flex items-center ">
-                <TextAndIcon
+                <IconIcon
                   imgUrl={login}
                   classText="text-[1rem] font-bold "
                   className="flex row nowrap"
@@ -82,14 +82,14 @@ export default function Header() {
               </span>
             </li>
             <li className="pt-[.5rem]">
-              <TextAndIcon imgUrl={search} />
+              <IconIcon imgUrl={search} />
             </li>
             <li className="flex items-center ">
-              <TextAndIcon classText="text-xl mr-2" imgUrl={shop} />
+              <IconIcon classText="text-xl mr-2" imgUrl={shop} />
               <span className="text-lg pb-[1.5rem]">1</span>
             </li>
             <li className="flex items-center ">
-              <TextAndIcon classText="text-xl mr-2 " imgUrl={like} />
+              <IconIcon classText="text-xl mr-2 " imgUrl={like} />
               <span className="text-lg pb-[1.5rem]">1</span>
             </li>
           </ul>

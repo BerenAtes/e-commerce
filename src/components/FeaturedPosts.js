@@ -1,4 +1,4 @@
-import IconIcon from "./Icon";
+import Icon from "./Icon";
 
 import time from "../assets/icons/time.svg";
 import comments from "../assets/icons/comments.svg";
@@ -24,18 +24,18 @@ export default function FeaturedPosts({ imgUrl, className }) {
           keystroke away.
         </p>
         <span className="flex items-center gap-1">
-          <IconIcon className="text-[12px] text-clr-second" imgUrl={time} />
+          <Icon className="text-[12px] text-clr-second" imgUrl={time} />
           <span className=" text-[12px] text-clr-second pr-[4rem] ">
             22 April 2021
           </span>
-          <IconIcon className="text-[12px] text-clr-second" imgUrl={comments} />
+          <Icon className="text-[12px] text-clr-second" imgUrl={comments} />
           <span className=" text-[12px] text-clr-second ">10 Comments</span>
         </span>
 
         <span className="flex items-center gap-[1rem]">
           {" "}
           <span className="text-lg ">Learn More</span>
-          <IconIcon className="text-[12px] text-clr-second" imgUrl={ok} />{" "}
+          <Icon className="text-[12px] text-clr-second" imgUrl={ok} />{" "}
         </span>
       </div>
     </div>

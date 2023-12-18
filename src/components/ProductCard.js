@@ -1,6 +1,13 @@
+import { useHistory } from "react-router-dom";
+import Product from "../pages/Product";
+
 export default function ProductCard({ imgUrl, className }) {
+  const history = useHistory();
+  const handleCardClick = () => {
+    history.push("/shop/product");
+  };
   return (
-    <div className={className}>
+    <div className={className} onClick={handleCardClick}>
       <div className="w-[230px] relative  aspect-[80/100] ">
         <img src={imgUrl} className="" alt="img-product" />
       </div>

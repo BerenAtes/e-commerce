@@ -2,6 +2,7 @@ import Logos from "../components/Logos";
 
 import background from "../assets/about/background.svg";
 import background2 from "../assets/about/background2.svg";
+import UserCardAbout from "../components/about/UserCardAbout";
 
 export default function About() {
   return (
@@ -25,6 +26,26 @@ export default function About() {
               Get Quote Now
             </button>
           </div>
+        </section>
+        <section>
+          <div>
+            <div>
+              <p>Problems trying</p>
+              <h3>
+                Met minim Mollie non desert Alamo est sit cliquey dolor do met
+                sent.
+              </h3>
+            </div>
+            <div>
+              <p>
+                Problems trying to resolve the conflict between the two major
+                realms of Classical physics: Newtonian mechanics{" "}
+              </p>
+            </div>
+          </div>
+        </section>
+        <section>
+          <UserCardAbout />
         </section>
         <section>
           <h2>Big Companies Are Here</h2>

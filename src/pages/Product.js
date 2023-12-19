@@ -7,9 +7,10 @@ export default function Product() {
   return (
     <>
       <div>
+        {" "}
+        <PagesPath />
         <ProductSection />
         <ProductDescription />
-        <PagesPath />
       </div>
       <Logos />
     </>

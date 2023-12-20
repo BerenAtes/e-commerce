@@ -36,7 +36,7 @@ export default function Path({ className }) {
               >
                 {item.slice(0, 1).toUpperCase() + item.slice(1, item.length)}
               </Link>
-              <i className="text-clr-muted fa-solid fa-chevron-right"></i>
+              <Icon imgUrl={homeok} />
             </>
           );
         }

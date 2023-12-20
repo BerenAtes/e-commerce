@@ -30,7 +30,7 @@
   @apply text-clr-light bg-bgclr-success;
 }
 .btn-primary {
-  @apply text-clr-light bg-bgclr-primary;
+  @apply text-clr-light bg-bgclr-primary p-[.5rem] rounded-lg;
 }
 .btn-primary-outline {
   @apply text-clr-primary border-[1px] border-clr-primary rounded-lg p-[.5rem];

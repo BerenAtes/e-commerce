@@ -2,47 +2,31 @@ import Logos from "../components/Logos";
 import StatisticAbout from "../components/about/StatisticAbout";
 import VideoAbout from "../components/about/VideoAbout";
 import UserCard from "../components/UserCard";
-import background from "../assets/about/background.svg";
+import AboutUs from "../components/about/AboutUs";
 
 import background2 from "../assets/about/background2.svg";
 
 export default function About() {
   return (
     <>
-      <div>
+      <div className="">
+        <AboutUs />
         <section>
-          <div>
-            <img
-              className="w-full h-full object-cover"
-              src={background}
-              alt="img"
-            />
-          </div>
-          <div>
-            <h5>About Company </h5>
-            <h1>ABOUT US</h1>
-            <p>
-              We know how large objects will act, but things on a small scale
-            </p>
-            <button className="btn-primary btn-small-wide self-start">
-              Get Quote Now
-            </button>
-          </div>
-        </section>
-        <section>
-          <div>
-            <div>
-              <p>Problems trying</p>
-              <h3>
-                Met minim Mollie non desert Alamo est sit cliquey dolor do met
-                sent.
-              </h3>
-            </div>
-            <div>
-              <p>
-                Problems trying to resolve the conflict between the two major
-                realms of Classical physics: Newtonian mechanics{" "}
-              </p>
+          <div className="container-small">
+            <div className="py-[1.5em] flex flex-wrap justify-center max-w-[30%]">
+              <div className="flex-shrink-0 p-8 flex flex-col items-start gap-[1rem] max-w-[90%]">
+                <p className="text-[14px] text-clr-danger">Problems trying</p>
+                <h3 className="text-[24px] text-clr-dark font-bold">
+                  Met minim Mollie non desert Alamo est sit cliquey dolor do met
+                  sent.
+                </h3>
+              </div>
+              <div className="flex-shrink-0 p-8 flex flex-col items-start max-w-[50%]">
+                <p className="text-[14px] text-clr-second">
+                  Problems trying to resolve the conflict between the two major
+                  realms of Classical physics: Newtonian mechanics{" "}
+                </p>
+              </div>
             </div>
           </div>
         </section>

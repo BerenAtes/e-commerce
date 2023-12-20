@@ -3,7 +3,7 @@ import background from "../../assets/contact/bg.svg";
 export default function ContactUs() {
   return (
     <>
-      <div className="flex items-center justify-center h-screen bg-clr-light">
+      <div className="container-medium flex items-center justify-center h-screen bg-clr-light">
         <section className="max-w-screen-xl mx-auto flex ">
           <div className="flex-shrink-0 w-1/2 p-8  flex flex-col  items-start gap-[1rem] pt-[8rem] ">
             <h5 className="text-[16px] font-bold text-clr-dark">CONTACT US </h5>

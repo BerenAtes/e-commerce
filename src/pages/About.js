@@ -1,8 +1,10 @@
 import Logos from "../components/Logos";
-
+import StatisticAbout from "../components/about/StatisticAbout";
+import VideoAbout from "../components/about/VideoAbout";
 import background from "../assets/about/background.svg";
-import background2 from "../assets/about/background2.svg";
 import UserCardAbout from "../components/about/UserCardAbout";
+
+import background2 from "../assets/about/background2.svg";
 
 export default function About() {
   return (
@@ -42,6 +44,16 @@ export default function About() {
                 realms of Classical physics: Newtonian mechanics{" "}
               </p>
             </div>
+          </div>
+        </section>
+        <section>
+          <div>
+            <StatisticAbout />
+          </div>
+        </section>
+        <section>
+          <div>
+            <VideoAbout />
           </div>
         </section>
         <section>

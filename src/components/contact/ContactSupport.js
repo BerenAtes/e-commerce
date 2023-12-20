@@ -9,9 +9,7 @@ export default function ContactSupport() {
         <div className="container-small">
           <section className="font-bold py-[5em]">
             <div className="w-[55%] m-auto mb-[5rem]">
-              <h6 className="text-[0.875rem] text-clr-dark">
-                VISIT OUR OFFICE
-              </h6>
+              <h6 className="text-[1rem] text-clr-dark">VISIT OUR OFFICE</h6>
               <h2 className="text-[2.5rem] text-clr-dark">
                 We help small businesses with big ideas
               </h2>
@@ -19,11 +17,11 @@ export default function ContactSupport() {
             <div className="flex flex-wrap justify-center">
               <div className="flex flex-col items-center gap-y-[0.9375rem] py-[3.125em] px-[2.5em]">
                 <img
-                  className="w-full h-full object-cover"
+                  className="w-auto h-auto object-cover"
                   src={phone}
                   alt="img"
                 />
-                <div className="text-clr-dark text-[0.875rem]">
+                <div className="text-[1rem] text-clr-dark ">
                   <p>georgia.young@example.com</p>
                   <p>georgia.young@ple.com</p>
                 </div>
@@ -34,11 +32,11 @@ export default function ContactSupport() {
               </div>
               <div className="flex flex-col items-center gap-y-[0.9375rem] py-[3.125em] px-[2.5em] bg-bgclr-dark">
                 <img
-                  className="w-full h-full object-cover"
+                  className="w-auto h-auto object-cover"
                   src={location}
                   alt="img"
                 />
-                <div className="text-clr-light text-[0.875rem]">
+                <div className="text-clr-light text-[1rem]">
                   <p>georgia.young@example.com</p>
                   <p>georgia.young@ple.com</p>
                 </div>
@@ -49,11 +47,11 @@ export default function ContactSupport() {
               </div>
               <div className="flex flex-col items-center gap-y-[0.9375rem] py-[3.125em] px-[2.5em]">
                 <img
-                  className="w-full h-full object-cover"
+                  className="w-auto h-auto object-cover "
                   src={mail}
                   alt="img"
                 />
-                <div className="text-clr-dark text-[0.875rem]">
+                <div className="text-clr-dark text-[1rem]">
                   <p>georgia.young@example.com</p>
                   <p>georgia.young@ple.com</p>
                 </div>

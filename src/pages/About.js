@@ -1,8 +1,8 @@
 import Logos from "../components/Logos";
 import StatisticAbout from "../components/about/StatisticAbout";
 import VideoAbout from "../components/about/VideoAbout";
+import UserCard from "../components/UserCard";
 import background from "../assets/about/background.svg";
-import UserCardAbout from "../components/about/UserCardAbout";
 
 import background2 from "../assets/about/background2.svg";
 
@@ -57,7 +57,7 @@ export default function About() {
           </div>
         </section>
         <section>
-          <UserCardAbout />
+          <UserCard />
         </section>
         <section>
           <h2>Big Companies Are Here</h2>

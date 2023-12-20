@@ -8,6 +8,9 @@ import Star from "../../components/Star";
 
 import sliderproduct from "../../assets/slider/sliderproduct.svg";
 import sliderproduct2 from "../../assets/slider/slider2.svg";
+import LikeButton from "../LikeButton";
+import ShoppingCartButton from "../ShoppingCardButton";
+import BrowseButton from "../BrowseButton";
 
 export default function SliderProduct() {
   return (
@@ -66,14 +69,13 @@ export default function SliderProduct() {
 
             <div className="flex gap-x-[0.625rem] mb-[4.2rem]"></div>
 
-            {/* TODO: iconlar ortalı görünmüyor */}
             <div className="flex items-center gap-x-[0.625rem]">
               <button className="btn-small btn-primary font-bold">
                 Select Options
               </button>
-              <i className="aspect-square rounded-full p-[0.5em] border-[1px] border-clr-muted text-[1.25rem] fa-regular fa-heart"></i>
-              <i className="aspect-square rounded-full p-[0.5em] border-[1px] border-clr-muted text-[1.25rem] fa-solid fa-cart-shopping"></i>
-              <i className="aspect-square rounded-full p-[0.5em] border-[1px] border-clr-muted text-[1.25rem] fa-solid fa-eye"></i>
+              <LikeButton />
+              <ShoppingCartButton />
+              <BrowseButton />
             </div>
           </div>
         </div>

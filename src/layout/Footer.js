@@ -23,21 +23,26 @@ export default function Footer() {
         </div>
       </div>
 
-      <div>
-        <div className="flex justify-between container-small py-[3rem] mb-[6rem]">
+      <div className="flex flex-col container-small p-[1rem] mb-6 ">
+        <div className="flex flex-wrap justify-between gap-4">
           <FooterInformation
             title="Company Info"
-            items={["About Us", "Carrier", "We are haring", "Blog"]}
+            items={["About Us", "Carrier", "We are Hiring", "Blog"]}
           />
           <FooterInformation
             title="Legal"
-            items={["About Us", "Carrier", "We are haring", "Blog"]}
+            items={[
+              "Privacy Policy",
+              "Terms of Service",
+              "Refund Policy",
+              "Cookie Policy",
+            ]}
           />
           <FooterInformation
             title="Features"
             items={[
               "Business Marketing",
-              "User Analytic",
+              "User Analytics",
               "Live Chat",
               "Unlimited Support",
             ]}
@@ -48,10 +53,8 @@ export default function Footer() {
           />
           <FooterContactBox />
         </div>
-      </div>
-      <div className="bg-bgclr-ligth-gray-1">
-        <div className=" container-small text-clr-second font-bold text-[1rem] py-[2rem] text-left">
-          Made With Love By Finland All Righ
+        <div className="bg-bgclr-ligth-gray-1 py-2 text-clr-second font-bold text-sm text-left mt-[3rem]">
+          Made With Love By Finland. All Rights Reserved.
         </div>
       </div>
     </footer>

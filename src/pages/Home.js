@@ -78,7 +78,7 @@ export default function Home() {
         <p className="text-clr-second font-semibold text-[14px]">
           Problems trying to resolve the conflict between{" "}
         </p>
-        <div className="py-[5rem] flex flex-wrap justify-center gap-y-[5rem] gap-x-[1.875rem]  t ">
+        <div className="py-[5rem] flex flex-wrap justify-center gap-y-[5rem] gap-x-[1.875rem]  ">
           <ProductCard imgUrl={productimg} />
           <ProductCard imgUrl={productimg2} />
           <ProductCard imgUrl={productimg3} />

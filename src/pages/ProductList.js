@@ -39,40 +39,41 @@ export default function ProductList() {
         <section className="container-big m-auto pt-[2.375em] pb-[3em] px-[11em]">
           <div className="flex justify-between items-center mb-[3em]">
             <span className="text-[1.5rem] text-clr-dark font-bold">Shop</span>
+            <br />
             <PagesPath />
           </div>
-
-          <div className="flex  justify-between gap-x-[1rem] relative ">
-            <ProductListCard
-              className="basis-[206px] grow relative absolute "
-              imgUrl={clothes}
-              title="CLOTHS"
-              text="5 Items"
-            />
-            <ProductListCard
-              className="basis-[206px] grow relative "
-              imgUrl={clothes2}
-              title="CLOTHS"
-              text="5 Items"
-            />
-            <ProductListCard
-              className="basis-[206px] grow relative "
-              imgUrl={clothes3}
-              title="CLOTHS"
-              text="5 Items"
-            />
-            <ProductListCard
-              className="basis-[206px] grow relative "
-              imgUrl={clothes4}
-              title="CLOTHS"
-              text="5 Items"
-            />
-            <ProductListCard
-              className="basis-[206px] grow relative "
-              imgUrl={clothes5}
-              title="CLOTHS"
-              text="5 Items"
-            />
+          <div className="flex flex-wrap justify-center gap-y-4 md:flex-row md:flex-nowrap">
+            <div className="w-full sm:w-auto md:w-[206px] grow relative">
+              <ProductListCard imgUrl={clothes} title="CLOTHS" text="5 Items" />
+            </div>
+            <div className="w-full sm:w-auto  grow relative">
+              <ProductListCard
+                imgUrl={clothes2}
+                title="CLOTHS"
+                text="5 Items"
+              />
+            </div>
+            <div className="w-full sm:w-auto  grow relative">
+              <ProductListCard
+                imgUrl={clothes3}
+                title="CLOTHS"
+                text="5 Items"
+              />
+            </div>
+            <div className="w-full sm:w-auto  grow relative">
+              <ProductListCard
+                imgUrl={clothes4}
+                title="CLOTHS"
+                text="5 Items"
+              />
+            </div>
+            <div className="w-full sm:w-auto  grow relative">
+              <ProductListCard
+                imgUrl={clothes5}
+                title="CLOTHS"
+                text="5 Items"
+              />
+            </div>
           </div>
         </section>
       </div>
@@ -109,55 +110,19 @@ export default function ProductList() {
               </button>
             </div>
           </div>
-          <div className=" gap-y-[5rem] my-[5rem] py-4  flex flex-wrap gap-x-[2rem]">
-            <ProductCard
-              className="  basis-[200px] h-[300px] w-[239px] mb-[5rem]"
-              imgUrl={shop1}
-            />
-            <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[8rem]"
-              imgUrl={shop2}
-            />
-            <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[8rem]"
-              imgUrl={shop3}
-            />
-            <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[8rem]"
-              imgUrl={shop4}
-            />
-            <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[8rem]"
-              imgUrl={shop5}
-            />
-            <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[8rem]"
-              imgUrl={shop6}
-            />
-            <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[8rem]"
-              imgUrl={shop7}
-            />
-            <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[8rem]"
-              imgUrl={shop8}
-            />
-            <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[8rem]"
-              imgUrl={shop9}
-            />
-            <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[8rem]"
-              imgUrl={shop10}
-            />
-            <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[8rem]"
-              imgUrl={shop11}
-            />
-            <ProductCard
-              className="basis-[200px] h-[300px] w-[239px] mb-[8rem]"
-              imgUrl={shop12}
-            />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-16 my-8 md:my-16 py-4">
+            <ProductCard className="w-full mb-8" imgUrl={shop1} />
+            <ProductCard className="w-full mb-8" imgUrl={shop2} />
+            <ProductCard className="w-full mb-8" imgUrl={shop3} />
+            <ProductCard className="w-full mb-8" imgUrl={shop4} />
+            <ProductCard className="w-full mb-8" imgUrl={shop5} />
+            <ProductCard className="w-full mb-8" imgUrl={shop6} />
+            <ProductCard className="w-full mb-8" imgUrl={shop7} />
+            <ProductCard className="w-full mb-8" imgUrl={shop8} />
+            <ProductCard className="w-full mb-8" imgUrl={shop9} />
+            <ProductCard className="w-full mb-8" imgUrl={shop10} />
+            <ProductCard className="w-full mb-8" imgUrl={shop11} />
+            <ProductCard className="w-full mb-8" imgUrl={shop12} />
           </div>
 
           <span className="flex items-center justify-center    ">

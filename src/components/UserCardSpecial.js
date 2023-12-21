@@ -8,20 +8,28 @@ export default function UserCardSpecial({ imgUrl, className }) {
   const handleCardClick = () => {
     history.push("/team");
   };
+
   return (
-    <div className={className} onClick={handleCardClick}>
-      <div className="w-[230px] relative  aspect-[80/100] ">
-        <img src={imgUrl} className="" alt="img-product" />
+    <div
+      className={`flex flex-col items-center ${className}`}
+      onClick={handleCardClick}
+    >
+      <div className="w-56 h-40 mb-3">
+        <img
+          src={imgUrl}
+          className="w-full h-full object-cover"
+          alt="img-product"
+        />
       </div>
-      <div className="flex flex-col grow gap-y-[0.5rem]">
-        <h5 className="text-clr-dark font-bold text-[16px] pt-[1.5rem]">
+      <div className="flex flex-col items-center text-center">
+        <h5 className="text-clr-dark font-bold text-16px pt-1.5rem">
           User Name
         </h5>
-        <h6 className="text-clr-second text-[14px] font-bold">Profession</h6>
-        <div className="">
-          <img src={facebook} className="" alt="img-product" />
-          <img src={insta} className="" alt="img-product" />
-          <img src={twitter} className="" alt="img-product" />
+        <h6 className="text-clr-second text-14px font-bold">Profession</h6>
+        <div className="flex gap-4 mt-3">
+          <img src={facebook} className="w-6 h-6" alt="Facebook" />
+          <img src={insta} className="w-6 h-6" alt="Instagram" />
+          <img src={twitter} className="w-6 h-6" alt="Twitter" />
         </div>
       </div>
     </div>

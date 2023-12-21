@@ -6,10 +6,10 @@ export default function UserStatistics({
 }) {
   return (
     <div className={className}>
-      <span className="block text-clr-dark text-[3.625rem]">
+      <span className="block text-clr-dark  font-bold text-[58px]">
         {statisticNumber}
       </span>
-      <span className="block text-clr-second fon">{description}</span>
+      <span className="block text-clr-second font-bold">{description}</span>
     </div>
   );
 }

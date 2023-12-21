@@ -36,7 +36,7 @@ export default function ProductList() {
   return (
     <>
       <div className="bg-bgclr-ligth-gray-1">
-        <section className="container-big m-auto pt-[2.375em] pb-[3em] px-[11em]">
+        <section className="container-big m-auto pt-[10%] pb-[10%] px-[10%]">
           <div className="flex justify-between items-center mb-[3em]">
             <span className="text-[1.5rem] text-clr-dark font-bold">Shop</span>
             <br />
@@ -79,13 +79,15 @@ export default function ProductList() {
       </div>
 
       <div>
-        <section className="container-big px-[12em] py-[1rem]">
-          <div className="text-clr-second flex items-center justify-between py-[1.5em]">
-            <div className="text-[0.875rem] font-bold">
+        <section className="container-big py-[5rem] flex flex-wrap justify-center gap-y-[5rem] gap-x-[3rem] ">
+          <div className="text-clr-second flex flex-row justify-center items-center justify-between py-[1.5em]">
+            <div className="text-[0.875rem] font-bold pl-[.5rem]">
               Showing all 12 results
             </div>
             <div className="flex items-center gap-x-[1rem]">
-              <span className="text-[0.875rem] font-bold">Views:</span>
+              <span className="text-[0.875rem] font-bold pl-[1rem] pr-[0]">
+                Views:
+              </span>
               <IconIcon
                 className="text-[12px] text-clr-second"
                 imgUrl={views1}
@@ -97,7 +99,7 @@ export default function ProductList() {
             </div>
             <div className="flex">
               <select
-                className="mr-[1rem] pr-[2em] pl-[1.3em] text-[0.875rem] border-[1px] rounded-[5px] border-[#DDDDDD] bg-[#F9F9F9]"
+                className="mr-[1rem] pr-[.5rem] pl-[.5rem] text-[0.875rem] border-[1px] rounded-[5px] border-[#DDDDDD] bg-[#F9F9F9]"
                 name="cars"
                 id="cars"
               >
@@ -105,12 +107,12 @@ export default function ProductList() {
                 <option value="Price High-Low">Price High-Low</option>
                 <option value="Price Low-High">Price Low-High</option>
               </select>
-              <button className="font-bold btn-small btn-primary text-[0.875rem]">
+              <button className="font-bold btn-small btn-primary text-[0.875rem] pl-[.1rem]">
                 Filter
               </button>
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-16 my-8 md:my-16 py-4">
+          <div className="flex flex-row justify-center items-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-16 my-8 md:my-16 py-4 gap-[2rem] ">
             <ProductCard className="w-full mb-8" imgUrl={shop1} />
             <ProductCard className="w-full mb-8" imgUrl={shop2} />
             <ProductCard className="w-full mb-8" imgUrl={shop3} />

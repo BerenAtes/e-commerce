@@ -19,7 +19,7 @@ export default function Path({ className }) {
 
   return (
     <div className={getClassName(classesDefault, className)}>
-      <span className="flex items-center gap-[1rem] ">
+      <span className="flex items-center gap-[1rem] pl-[2rem] ">
         <Link to="/home" className="text-clr-dark text-[0.875rem] font-bold">
           Home
         </Link>

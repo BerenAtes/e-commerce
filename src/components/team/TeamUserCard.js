@@ -12,10 +12,10 @@ import media5 from "../../assets/about/media5.png";
 export default function TeamUserCard() {
   return (
     <>
-      <section className="container-small pt-[8rem] ">
-        <h2 className="text-clr-dark font-bold text-[24px]">Meet Our Team</h2>
+      <section className="container-small pt-[3rem] ">
+        <h2 className="text-clr-dark font-bold text-[40px]">Meet Our Team</h2>
 
-        <div className="py-[5rem] flex flex-wrap gap-y-[5rem] gap-x-[1.875rem]  justify-start ">
+        <div className="py-[5rem] flex flex-wrap gap-y-[5rem] gap-x-[4rem]  justify-center ">
           <UserCardSpecial imgUrl={team1} />
           <UserCardSpecial imgUrl={team2} />
           <UserCardSpecial imgUrl={team3} />

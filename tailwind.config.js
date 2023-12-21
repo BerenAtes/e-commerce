@@ -15,6 +15,7 @@ module.exports = {
         "clr-hover": "var(--hover-color)",
         "clr-disabled-element": "var(--disabled-element-color)",
         "clr-muted": "var(--muted-color)",
+        "clr-fbk": "#395185",
 
         "clr-light-gray-1": "var(--light-gray-1)",
         "clr-light-gray-2": "var(--light-gray-2)",
@@ -32,6 +33,7 @@ module.exports = {
         "bgclr-alert": "var(--alert-color)",
         "bgclr-ligth-gray-1": "var(--light-gray-1)",
         "bgclr-ligth-gray-2": "var(--light-gray-2)",
+        "bgclr-fbk": "#395185",
       },
 
       fontFamily: {
@@ -50,6 +52,7 @@ module.exports = {
       "faded-secondary-color-1": "#B9EAA8",
       "faded-secondary-color-2": "#FFDCD1",
       "light background": "#FFFFFF",
+      "fbook-background": "#395185",
     },
   },
   plugins: [],

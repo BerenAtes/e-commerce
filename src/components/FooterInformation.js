@@ -1,6 +1,6 @@
 export default function FooterInformation({ title, items }) {
   return (
-    <div>
+    <div className="pl-[1rem]">
       <h5 className="font-bold text-clr-dark mb-[1.5rem]">{title}</h5>
 
       {items?.map((item) => (

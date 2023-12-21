@@ -9,22 +9,22 @@ import instafooter from "../assets/icons/instafooter.svg";
 
 export default function Footer() {
   return (
-    <footer className=" text-left">
-      <div className="bg-bgclr-ligth-gray-1">
-        <div className=" flex justify-between  py-10 container-small items-center container">
-          <BrandName />
-          <div>
-            <span className="flex items-center gap-[1rem]">
-              <Icon imgUrl={facefooter} />
-              <Icon imgUrl={instafooter} />
-              <Icon imgUrl={twitterfooter} />
+    <footer className="text-left justify-center">
+      <div className="bg-bgclr-ligth-gray-1 py-4">
+        <div className="container-small pl-[1rem]">
+          <BrandName className="text-2xl font-bold text-clr-dark" />
+          <div className="mt-4 pl-[1rem]">
+            <span className="flex items-center gap-4">
+              <Icon imgUrl={facefooter} className="w-6 h-6" />
+              <Icon imgUrl={instafooter} className="w-6 h-6" />
+              <Icon imgUrl={twitterfooter} className="w-6 h-6" />
             </span>
           </div>
         </div>
       </div>
 
-      <div className="flex flex-col container-small p-[1rem] mb-6 ">
-        <div className="flex flex-wrap justify-between gap-4">
+      <div className="container-small p-4 mb-6 lg:flex lg:justify-between">
+        <div className="flex flex-col  gap-[5rem] md:flex-row lg:flex-row items-start">
           <FooterInformation
             title="Company Info"
             items={["About Us", "Carrier", "We are Hiring", "Blog"]}
@@ -53,7 +53,8 @@ export default function Footer() {
           />
           <FooterContactBox />
         </div>
-        <div className="bg-bgclr-ligth-gray-1 py-2 text-clr-second font-bold text-sm text-left mt-[3rem]">
+        <br />
+        <div className=" bg-bgclr-ligth-gray-1 py-2 text-clr-second font-bold text-sm mt-4 text-center">
           Made With Love By Finland. All Rights Reserved.
         </div>
       </div>

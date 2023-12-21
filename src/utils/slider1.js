@@ -5,29 +5,26 @@ import slider2 from "../assets/slider/slider2.svg";
 
 export default function HomeSlider() {
   return (
-    <AwesomeSlider
-      style={{
-        "--slider-height-percentage": "77%",
-      }}
-    >
+    <>
       <div className="relative aspect-[2/1] text-clr-light">
-        <img className="img-main" src={slider} alt="img" />
-        <div className="relative container-small z-10 top-[29%]">
-          <div className="font-bold w-[60%] flex flex-col items-start gap-y-[2.1875rem]">
-            <span>SUMMER 2020</span>
-            <h2 className="text-[3.625rem]">NEW COLLECTION</h2>
-            <span className="text-[1.25rem] text-left font-normal w-[60%]">
+        <img
+          className="img-main object-cover w-full h-full"
+          src={slider}
+          alt="img"
+        />
+        <div className="relative container-small z-10 top-[50%] transform -translate-y-1/2 p-4 md:p-0 md:w-[60%] md:right-0 absolute">
+          <div className="font-bold flex flex-col items-start gap-y-4">
+            <span className="text-base md:text-lg">SUMMER 2020</span>
+            <h2 className="text-2xl md:text-4xl">NEW COLLECTION</h2>
+            <span className="text-lg md:text-xl">
               We know how large objects will act, but things on a small scale.
             </span>
-            <Link className="btn-md btn-success text-[1.25rem]" to="/shop">
+            <Link className="btn-md btn-success text-lg md:text-xl" to="/shop">
               SHOP NOW
             </Link>
           </div>
         </div>
       </div>
-      <div className="relative aspect-[2/1]">
-        <img className="img-main" src={slider2} alt="img" />
-      </div>
-    </AwesomeSlider>
+    </>
   );
 }

@@ -17,39 +17,40 @@ import like from "../assets/icons/like.svg";
 
 export default function Header() {
   return (
-    <header className="">
-      <div className="bg-bgclr-dark text-clr-light ">
-        <nav className="container-big py-[1.5em] px-[1em] flex justify-between items-center">
-          <div className="flex gap-[1.875rem]">
-            <IconIcon
-              className="flex items-center "
-              classText="text-[0.875rem] font-bold"
-              imgUrl={telephone}
-              text="(225) 555-0118"
-            />
-            <IconIcon
-              className="flex items-center "
-              classText="text-[0.875rem] font-bold"
-              imgUrl={mail}
-              text="michelle.rivera@example.com"
-            />
-          </div>
-          <span className="text-[0.875rem] font-bold">
-            Follow Us and get a chance to win 80% off
-          </span>
-          <span className="flex items-center gap-[1rem]">
-            <span className="text-[0.875rem] font-bold">Follow Us :</span>
-            <IconIcon imgUrl={insta} />
-            <IconIcon imgUrl={youtube} />
-            <IconIcon imgUrl={facebook} />
-            <IconIcon imgUrl={twitter} />
-          </span>
-        </nav>
+    <header className=" ">
+      <div className="bg-bgclr-dark text-clr-light p-4">
+        <div className="container-big">
+          <nav className="flex items-center justify-between flex-wrap">
+            <div className="flex gap-4">
+              <IconIcon
+                className="text-[0.875rem] font-bold mb-[1rem] mr-[5rem]"
+                imgUrl={telephone}
+                text="(225) 555-0118"
+              />
+              <IconIcon
+                className="text-[0.875rem] font-bold"
+                imgUrl={mail}
+                text="michelle.rivera@example.com"
+              />
+            </div>
+            <span className="text-[0.875rem] font-bold block md:inline-block mb-2 md:mb-0">
+              Follow Us and get a chance to win 80% off
+            </span>
+            <div className="flex items-center gap-2">
+              <span className="text-[0.875rem] font-bold">Follow Us :</span>
+              <IconIcon imgUrl={insta} />
+              <IconIcon imgUrl={youtube} />
+              <IconIcon imgUrl={facebook} />
+              <IconIcon imgUrl={twitter} />
+            </div>
+          </nav>
+        </div>
       </div>
-      <div className="container-big px-[1em] py-[1.5em] flex gap-x-[2.5rem] items-center">
+
+      <div className="container-big px-[1em] py-[1.5em] flex flex-col md:flex-row md:justify-between items-center">
         <BrandName />
-        <nav className="grow flex  justify-between">
-          <ul className="flex text-clr-second gap-6 font-bold ">
+        <nav className="mt-4 md:mt-0 flex-grow flex flex-col md:flex-row justify-between">
+          <ul className="flex text-clr-second gap-6 font-bold mb-4 md:mb-0">
             <li>
               <NavLink to="/home">Home</NavLink>
             </li>
@@ -70,26 +71,21 @@ export default function Header() {
               <NavLink to="#">Pages</NavLink>
             </li>
           </ul>
-          <ul className="flex row nowrap font-bold text-clr-primary gap-x-[2rem] mr-2">
-            <li>
-              <span className="flex items-center ">
-                <IconIcon
-                  imgUrl={login}
-                  classText="text-[1rem] font-bold "
-                  className="flex row nowrap"
-                />
-                <span>Login/Register</span>{" "}
-              </span>
+          <ul className="flex row nowrap font-bold text-clr-primary gap-x-2 mr-2">
+            <li className="flex items-center ">
+              <IconIcon imgUrl={login} classText="text-xl mr-2 font-bold" />
+              <span className="pb-[2rem] mr-[8rem]">Login/Register</span>
             </li>
-            <li className="pt-[.5rem]">
-              <IconIcon imgUrl={search} />
+
+            <li className="pt-[.4rem]">
+              <IconIcon imgUrl={search} classText="text-xl" />
             </li>
             <li className="flex items-center ">
               <IconIcon classText="text-xl mr-2" imgUrl={shop} />
               <span className="text-lg pb-[1.5rem]">1</span>
             </li>
             <li className="flex items-center ">
-              <IconIcon classText="text-xl mr-2 " imgUrl={like} />
+              <IconIcon classText="text-xl mr-2" imgUrl={like} />
               <span className="text-lg pb-[1.5rem]">1</span>
             </li>
           </ul>

@@ -78,7 +78,7 @@ export default function Home() {
         <p className="text-clr-second font-semibold text-[14px]">
           Problems trying to resolve the conflict between{" "}
         </p>
-        <div className="py-[5rem] flex flex-wrap gap-y-[5rem] gap-x-[1.875rem]  justify-start ">
+        <div className="py-[5rem] flex flex-wrap justify-center gap-y-[5rem] gap-x-[1.875rem]  t ">
           <ProductCard imgUrl={productimg} />
           <ProductCard imgUrl={productimg2} />
           <ProductCard imgUrl={productimg3} />
@@ -92,39 +92,45 @@ export default function Home() {
       <section>
         <HomeSlider2 />{" "}
       </section>
-
-      <section className="max-w-[1248px] m-auto pb-[8rem]">
-        <div className="flex gap-x-[2rem]">
-          <div className="basis-[624px] grow-[9]">
-            <img src={winterclothes} />
+      <section className="max-w-[1248px] mx-auto pb-8 md:pb-0 overflow-x-hidden">
+        <div className="flex flex-col md:flex-row gap-x-0 md:gap-x-2">
+          <div className="w-full md:w-[624px]">
+            <img
+              src={winterclothes}
+              alt="Winter Clothes"
+              className="w-full h-auto pr-[2rem] pl-[2rem]"
+            />
           </div>
-          <div className="container-small basis-[484px] grow-[7] flex flex-col justify-center items-start">
-            <div className=" font-bold flex flex-col items-start gap-y-[2.1875rem] justify-between">
-              <span className="text-clr-muted text-[16px]">SUMMER 2020</span>
-              <h2 className="text-[40px] font-bold text-clr-dark text-left">
+          <div className="w-full md:w-[484px] flex flex-col justify-center items-center md:items-start">
+            <div className="font-bold text-center md:text-left mb-4">
+              <span className="text-clr-muted text-xs md:text-base block">
+                SUMMER 2020
+              </span>
+              <h2 className="text-xl md:text-2xl font-bold text-clr-dark">
                 Part of the Neural Universe
               </h2>
-              <span className="text-[20px] text-clr-second font-bold">
+              <span className="text-lg md:text-xl text-clr-second font-bold">
                 We know how large objects will act, but things on a small scale.
               </span>
-              <div>
-                <Link
-                  className="btn-success inline-block btn-md text-[14px]  mr-[0.5rem]"
-                  to="#"
-                >
-                  BUY NOW
-                </Link>
-                <Link
-                  className="btn-success-outline inline-block btn-md text-[14px]  "
-                  to="#"
-                >
-                  READ MORE
-                </Link>
-              </div>
+            </div>
+            <div className="flex flex-col md:flex-row gap-y-2 md:gap-x-2">
+              <Link
+                className="btn-success inline-block btn-md text-xs md:text-sm mb-2 md:mb-0 mr-1"
+                to="#"
+              >
+                BUY NOW
+              </Link>
+              <Link
+                className="btn-success-outline inline-block btn-md text-xs md:text-sm"
+                to="#"
+              >
+                READ MORE
+              </Link>
             </div>
           </div>
         </div>
       </section>
+
       <section className="container-small pb-[10rem]">
         <span className="text-clr-primary font-bold">Practice Advice</span>
         <h3 className="text-clr-dark text-[40px] font-bold">Featured Posts</h3>

@@ -21,7 +21,11 @@ export default function ContactUs() {
             </h3>
           </div>
           <div className="flex-shrink-0 w-1/2">
-            <img className="w-full h-auto " src={background} alt="img" />
+            <img
+              className="w-full h-auto min-w-[70%]  min-h-[70%]"
+              src={background}
+              alt="img"
+            />
           </div>
         </section>
       </div>

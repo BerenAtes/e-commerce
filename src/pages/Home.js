@@ -138,17 +138,17 @@ export default function Home() {
           Problems trying to resolve the conflict between the two major realms
           of Classical physics: Newtonian mechanics{" "}
         </p>
-        <div className="flex justify-between gap-x-[0.5rem]">
+        <div className="flex flex-wrap justify-center gap-x-[0.5rem]">
           <FeaturedPosts
-            className=" border-2 pb-[1.5rem] base-[350px]"
+            className="border-2 pb-[1.5rem] base-[350px] w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.33%-0.5rem)]"
             imgUrl={featuredimg1}
           />
           <FeaturedPosts
-            className=" border-2 pb-[1.5rem] base-[350px]"
+            className="border-2 pb-[1.5rem] base-[350px] w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.33%-0.5rem)]"
             imgUrl={featuredimg2}
           />
           <FeaturedPosts
-            className=" border-2 pb-[1.5rem] base-[350px]"
+            className="border-2 pb-[1.5rem] base-[350px] w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.33%-0.5rem)]"
             imgUrl={featuredimg3}
           />
         </div>

@@ -7,10 +7,10 @@ import ok from "../assets/icons/ok.svg";
 export default function FeaturedPosts({ imgUrl, className }) {
   return (
     <div className={className}>
-      <div>
+      <div className="flex flex-col justify-center">
         <img src={imgUrl} />
       </div>
-      <div className="flex flex-col text-left gap-y-[0.625rem] px-[1.5625rem] pt-[1.5625rem] pb-[2.1875rem">
+      <div className="flex flex-col justify-center text-left gap-y-[0.625rem] px-[1.5625rem] pt-[1.5625rem] pb-[2.1875rem">
         <div className="text-[12px]">
           <span className=" text-clr-disabled-element mr-[1rem]">Google</span>
           <span className=" text-clr-second mr-[1rem]">Trending</span>

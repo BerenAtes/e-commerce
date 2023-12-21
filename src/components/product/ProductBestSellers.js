@@ -12,12 +12,12 @@ import bs8 from "../../assets/bestsellers/bs8.png";
 export default function ProductBestSellers() {
   return (
     <>
-      <section className="container-small pt-[8rem] ">
+      <section className="container-small pt-[5rem] ">
         <h3 className="text-clr-dark font-bold text-[24px]">
           BESTSELLER PRODUCTS
         </h3>
         <hr />
-        <div className="py-[5rem] flex flex-wrap gap-y-[5rem] gap-x-[1.875rem]  justify-start ">
+        <div className="py-[5rem] flex flex-wrap gap-y-[5rem] gap-x-[1.875rem]  justify-center ">
           <ProductCard imgUrl={bs1} />
           <ProductCard imgUrl={bs2} />
           <ProductCard imgUrl={bs3} />

@@ -112,19 +112,21 @@ export default function ProductList() {
               </button>
             </div>
           </div>
-          <div className="flex flex-row justify-center items-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-16 my-8 md:my-16 py-4 gap-[2rem] ">
-            <ProductCard className="w-full mb-8" imgUrl={shop1} />
-            <ProductCard className="w-full mb-8" imgUrl={shop2} />
-            <ProductCard className="w-full mb-8" imgUrl={shop3} />
-            <ProductCard className="w-full mb-8" imgUrl={shop4} />
-            <ProductCard className="w-full mb-8" imgUrl={shop5} />
-            <ProductCard className="w-full mb-8" imgUrl={shop6} />
-            <ProductCard className="w-full mb-8" imgUrl={shop7} />
-            <ProductCard className="w-full mb-8" imgUrl={shop8} />
-            <ProductCard className="w-full mb-8" imgUrl={shop9} />
-            <ProductCard className="w-full mb-8" imgUrl={shop10} />
-            <ProductCard className="w-full mb-8" imgUrl={shop11} />
-            <ProductCard className="w-full mb-8" imgUrl={shop12} />
+          <div className="flex justify-center items-center w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-16 my-8 md:my-16 py-4 gap-[2rem] ">
+              <ProductCard className="w-full mb-8" imgUrl={shop1} />
+              <ProductCard className="w-full mb-8" imgUrl={shop2} />
+              <ProductCard className="w-full mb-8" imgUrl={shop3} />
+              <ProductCard className="w-full mb-8" imgUrl={shop4} />
+              <ProductCard className="w-full mb-8" imgUrl={shop5} />
+              <ProductCard className="w-full mb-8" imgUrl={shop6} />
+              <ProductCard className="w-full mb-8" imgUrl={shop7} />
+              <ProductCard className="w-full mb-8" imgUrl={shop8} />
+              <ProductCard className="w-full mb-8" imgUrl={shop9} />
+              <ProductCard className="w-full mb-8" imgUrl={shop10} />
+              <ProductCard className="w-full mb-8" imgUrl={shop11} />
+              <ProductCard className="w-full mb-8" imgUrl={shop12} />
+            </div>
           </div>
 
           <span className="flex items-center justify-center    ">

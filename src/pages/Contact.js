@@ -5,9 +5,11 @@ import ContactUs from "../components/contact/ContactUs";
 export default function Contact() {
   return (
     <>
-      <ContactUs />
-      <ContactSupport />
-      <ContactLetsTalk />
+      <div className="mt-[5rem]">
+        <ContactUs />
+        <ContactSupport />
+        <ContactLetsTalk />{" "}
+      </div>
     </>
   );
 }

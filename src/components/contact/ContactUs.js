@@ -4,7 +4,7 @@ export default function ContactUs() {
   return (
     <>
       {/* Mobil */}
-      <div className="lg:hidden container-medium flex flex-col items-center justify-center h-screen bg-clr-light">
+      <div className="lg:hidden container-medium flex flex-col items-center justify-center h-screen bg-clr-light ">
         <div className="p-8 flex flex-col items-center gap-[.1rem]">
           <h5 className="text-[16px] font-bold text-clr-dark">CONTACT US</h5>
           <h1 className="text-[58px] font-bold text-clr-dark">

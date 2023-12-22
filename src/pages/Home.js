@@ -37,37 +37,38 @@ export default function Home() {
           EDITOR’S PICK
         </h2>
         <p className="mb-[3rem] text-[0.875rem] text-clr-second">
-          Problems trying to resolve the conflict between{" "}
+          Problems trying to resolve the conflict between
         </p>
-        <div className="flex relative gap-x-[2rem] aspect-[2/1]">
-          <div className="basis-[539px]">
+        <div className="flex relative gap-x-[2rem] aspect-[2/1] flex-col md:flex-row items-center">
+          <div className="basis-[539px] mb-[1rem] md:mb-0">
             <CategoryCard
-              className="w-full h-full"
+              className="w-auto h-auto max-w-[95%]"
               imgUrl={menimg}
               textBtn={"MEN"}
             />
           </div>
-          <div className="relative basis-[255px]">
+          <div className="relative basis-[255px] mb-[1rem] md:mb-0 ">
             <CategoryCard
-              className="w-full h-full"
+              className="w-full h-full max-w-[95%]"
               imgUrl={womenImg}
               textBtn={"WOMEN"}
             />
           </div>
-          <div className=" relative basis-[239px] flex flex-wrap gap-y-[1rem]">
+          <div className="relative basis-[239px] flex flex-col gap-y-[1rem] items-center">
             <CategoryCard
-              className="relative basis-[239px]"
+              className="relative basis-[239px] max-w-[95%]"
               imgUrl={accessoriesImg}
               textBtn={"ACCESORIES"}
             />
             <CategoryCard
-              className="relative basis-[239px]"
+              className="relative basis-[239px] max-w-[95%]"
               imgUrl={kidsImg}
               textBtn={"KIDS"}
             />
           </div>
         </div>
       </section>
+
       <section className="container-small pt-[8rem] ">
         <h2 className="text-clr-second font-semibold text-[20px]">
           Featured Products

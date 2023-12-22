@@ -7,8 +7,8 @@ import productimg from "../../assets/productimg.png";
 export default function ProductDescription() {
   return (
     <>
-      {/* Masaüstü Görünüm */}
-      <div className="hidden lg:flex justify-center items-center bg-gray-100 p-4">
+      {/* Masaüstü */}
+      <div className=" hidden lg:flex justify-center items-center bg-gray-100 p-4">
         <Link className="p-[1rem] text-clr-second font-bold">Description</Link>
         <Link className="p-[1rem] text-clr-second font-bold">
           Additional Information
@@ -19,7 +19,7 @@ export default function ProductDescription() {
         <hr className="mt-[1.5rem]" />
       </div>
 
-      <div className="hidden lg:flex container mx-auto px-4">
+      <div className="container-small hidden lg:flex container mx-auto px-4">
         <section className="flex items-center justify-between w-full">
           <div className="w-1/2 pr-8">
             <img
@@ -28,12 +28,12 @@ export default function ProductDescription() {
               className="shadow-[0_35px_60px_-15px_rgba(#C4C4C4) w-full h-auto"
             />
           </div>
-          <div className="w-1/2">
-            <div className="max-w-[45%] mb-[2rem]">
+          <div className="w-1/2 flex ">
+            <div className="max-w-[85%] m-[2rem] ">
               <h3 className="text-clr-dark font-bold text-[24px] pb-[1.5rem]">
                 The Quick Fox Jumps Over
               </h3>
-              <p className="text-clr-second pb-[1rem]">
+              <p className="text-clr-second pb-[1rem] min-w-[60%]">
                 Met minim Mollie non desert Alamo est sit cliquey dolor do met
                 sent. RELIT official consequent door ENIM RELIT Mollie.
                 Excitation venial consequent sent nostrum met.
@@ -52,12 +52,12 @@ export default function ProductDescription() {
           </div>
           <div>
             {" "}
-            <div className="m-[1rem]">
+            <div className="m-[2rem] w-[120%] ">
               {" "}
               <h3 class="text-clr-dark font-bold text-[24px] pb-[1.5rem]">
                 the quick fox jumps over
               </h3>
-              <div class="flex pb-[1rem]">
+              <div class="flex pb-[1rem] ">
                 <Icon
                   class="text-[12px] text-clr-second"
                   imgUrl={Vector}
@@ -128,7 +128,7 @@ export default function ProductDescription() {
         </section>
       </div>
 
-      {/* Mobil Görünüm */}
+      {/* Mobil  */}
       <div className="lg:hidden p-4">
         <Link className="block p-[1rem] text-clr-second font-bold mb-2">
           Description

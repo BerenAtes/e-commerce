@@ -1,5 +1,6 @@
 import Logos from "../components/Logos";
 import PagesPath from "../components/PagesPath";
+import ImageSlider from "../utils/ImageSlider";
 
 import ProductDescription from "../components/product/ProductDescription";
 import ProductBestSellers from "../components/product/ProductBestSellers";

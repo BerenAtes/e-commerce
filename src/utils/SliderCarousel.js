@@ -1,3 +1,6 @@
+import slider from "../assets/slider/sliderimg.svg";
+import slider2 from "../assets/slider/slider2.svg";
+
 export const eArrow = Object.freeze({
   prev: "prev",
   right: "rigth",

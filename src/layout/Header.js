@@ -72,21 +72,21 @@ export default function Header() {
             </li>
           </ul>
           <ul className="flex flex-col md:flex-row row nowrap font-bold text-clr-primary gap-x-2 mr-2">
-            <li className="flex items-center hidden md:hidden ">
+            <li className="flex items-center hidden md:hidden">
               <IconIcon imgUrl={login} classText="text-xl mr-2 font-bold" />
               <span className="pb-[2rem] mr-[8rem]">Login/Register</span>
             </li>
 
-            <li className="pt-[.4rem] md:hidden">
+            <li className="s hidden md:inline-block ">
               <IconIcon imgUrl={search} classText="text-xl" />
             </li>
-            <li className="flex items-center ">
+            <li className="flex items-center  hidden md:inline-block">
               <IconIcon classText="text-xl mr-2" imgUrl={shop} />
-              <span className="text-lg pb-[1.5rem]">1</span>
+              <span className="text-lg pb-[1.5rem]"></span>
             </li>
-            <li className="flex items-center ">
+            <li className="flex items-center hidden md:inline-block ">
               <IconIcon classText="text-xl mr-2" imgUrl={like} />
-              <span className="text-lg pb-[1.5rem]">1</span>
+              <span className="text-lg pb-[1.5rem]"></span>
             </li>
           </ul>
         </nav>

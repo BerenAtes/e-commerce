@@ -1,9 +1,3 @@
-import { Carousel } from "react-responsive-carousel";
-import {
-  eArrow,
-  getCustomRenderArrowFunction,
-  customRenderIndicatorFunction,
-} from "../../utils/SliderCarousel";
 import Star from "../../components/Star";
 
 import sliderproduct from "../../assets/slider/sliderproduct.svg";
@@ -11,6 +5,7 @@ import sliderproduct2 from "../../assets/slider/slider2.svg";
 import LikeButton from "../LikeButton";
 import ShoppingCartButton from "../ShoppingCardButton";
 import BrowseButton from "../BrowseButton";
+import ImageSlider from "../../utils/ImageSlider";
 
 export default function SliderProduct() {
   return (
@@ -18,24 +13,15 @@ export default function SliderProduct() {
       <div className="bg-bgclr-ligth-gray-1 pb-[3em]">
         <div className="container-small flex flex-wrap gap-x-[2em]">
           <div className="basis-[348px] grow">
-            <Carousel
-              showThumbs={false}
-              infiniteLoop={false}
-              showStatus={false}
-              renderArrowPrev={getCustomRenderArrowFunction(eArrow.prev)}
-              renderArrowNext={getCustomRenderArrowFunction(eArrow.next)}
-              renderIndicator={customRenderIndicatorFunction}
-            >
+            <div>
               <div>
-                <div>
-                  <img
-                    className="w-100 aspect-square object-cover"
-                    src={sliderproduct}
-                    alt="carousel-img"
-                  />{" "}
-                </div>
+                <img
+                  className="w-100 aspect-square object-cover"
+                  src={sliderproduct}
+                  alt="carousel-img"
+                />{" "}
               </div>
-            </Carousel>
+            </div>
           </div>
           <div className="basis-[348px] grow pt-[0.6875em] pl-[1.5em] pr-[1.5em] text-left">
             <h4 className="text-clr-dark text-[20px] font-bold mb-[0.75rem]">

@@ -13,7 +13,7 @@ export default function AboutUs() {
           </p>
         </div>
         <img
-          className="w-full h-auto min-w-[70%] min-h-[70%]"
+          className="w-full h-auto min-w-[70%] min-h-[50%] object-contain"
           src={background}
           alt="img"
         />
@@ -30,10 +30,13 @@ export default function AboutUs() {
             <p className="text-[20px] text-clr-second">
               We know how large objects will act, but things on a small scale
             </p>
+            <button className="btn-primary btn-small-wide">
+              Get Quote Now
+            </button>
           </div>
           <div className="flex-shrink-0 w-1/2">
             <img
-              className="w-full h-auto min-w-[70%] min-h-[70%]"
+              className="w-full h-auto object-cover"
               src={background}
               alt="img"
             />

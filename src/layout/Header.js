@@ -72,9 +72,11 @@ export default function Header() {
             </li>
           </ul>
           <ul className="flex flex-col md:flex-row row nowrap font-bold text-clr-primary gap-x-2 mr-2">
-            <li className="flex items-center hidden md:hidden">
+            <li className="flex items-center">
               <IconIcon imgUrl={login} classText="text-xl mr-2 font-bold" />
-              <span className="pb-[2rem] mr-[8rem]">Login/Register</span>
+              <NavLink to="/Register" className="pb-[2rem] mr-[2rem]">
+                Login/Register
+              </NavLink>
             </li>
 
             <li className="s hidden md:inline-block ">

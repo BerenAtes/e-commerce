@@ -10,7 +10,7 @@ import ImageSlider from "../../utils/ImageSlider";
 export default function SliderProduct() {
   return (
     <>
-      <div className="bg-bgclr-ligth-gray-1 pb-[3em]">
+      <div className="bg-bgclr-ligth-gray-1 pb-[3em] mt-[1rem] pt-[1rem]">
         <div className="container-small flex flex-wrap gap-x-[2em]">
           <div className="basis-[348px] grow">
             <div>

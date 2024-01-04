@@ -19,3 +19,8 @@ export function globalReducer(state = globalInitialState, action) {
       return state;
   }
 }
+
+//- roles: {Object Array}
+//- categories: {Object Array}
+//- theme: {String}
+//- language: {String}

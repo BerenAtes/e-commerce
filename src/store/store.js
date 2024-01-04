@@ -1,19 +1,21 @@
-import { legacy_createStore as createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
+import { thunk } from "redux-thunk";
 import logger from "redux-logger";
-import { combineReducers } from "redux";
+import {
+  legacy_createStore as createStore,
+  applyMiddleware,
+  combineReducers,
+} from "redux";
 
 import { globalReducer } from "./reducers/globalReducer";
-import userReducer from "./reducers/userReducer";
+import { userReducer } from "./reducers/userReducer";
 import { productReducer } from "./reducers/productReducer";
-import shoppingCartReducer from "./reducers/shoppingCartReducer";
+import { shoppingCardReducer } from "./reducers/shoppingCardReducer";
 
 export const reducers = combineReducers({
   global: globalReducer,
   user: userReducer,
   products: productReducer,
-  shoppingCart: shoppingCartReducer,
+  shoppingCart: shoppingCardReducer,
 });
-const middleware = [thunk, logger];
 
-export const store = createStore(reducers, applyMiddleware(...middleware));
+export const store = createStore(reducers, applyMiddleware(logger, thunk));

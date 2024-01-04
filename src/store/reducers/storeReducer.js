@@ -1,3 +1,7 @@
+const initialState = {
+  sellerStore: {},
+};
+
 export function storeReducer(state = initialState, action) {
   switch (action.type) {
     case "SET_STORE":

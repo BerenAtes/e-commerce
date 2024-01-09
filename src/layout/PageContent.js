@@ -7,6 +7,7 @@ import About from "../pages/About";
 import Team from "../pages/Team";
 import Contact from "../pages/Contact";
 import Register from "../pages/Register";
+import Login from "../pages/Login";
 
 export default function PageContent() {
   return (
@@ -25,6 +26,9 @@ export default function PageContent() {
       </Route>
       <Route path="/contact">
         <Contact />
+      </Route>
+      <Route path="/Login">
+        <Login />
       </Route>
       <Route path="/Register">
         <Register />

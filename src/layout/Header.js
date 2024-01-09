@@ -74,8 +74,12 @@ export default function Header() {
           <ul className="flex flex-col md:flex-row row nowrap font-bold text-clr-primary gap-x-2 mr-2">
             <li className="flex items-center">
               <IconIcon imgUrl={login} classText="text-xl mr-2 font-bold" />
+              <NavLink to="/Login" className="pb-[2rem]">
+                Login/
+              </NavLink>
+
               <NavLink to="/Register" className="pb-[2rem] mr-[2rem]">
-                Login/Register
+                Register
               </NavLink>
             </li>
 

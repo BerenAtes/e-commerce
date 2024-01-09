@@ -1,4 +1,4 @@
-import { AxiosInstance, renewAxiosInstance } from "../../components/Api";
+import { AxiosInstance, renewAxiosInstance } from "../../components/Api/api";
 
 export const setUser = (user) => ({
   type: "SET_USER",

@@ -1,48 +1,25 @@
-//{Object} all about user
+import { LOGIN_USER, LOGOUT_USER } from "../actions/userAction";
 
-const userInitial = {
-  userName: null,
-  userMail: null,
-  userPicture: null,
-  login: false,
-  error: null,
-  token: null,
+const initialState = {
+  user: {
+    name: null,
+    email: null,
+    token: null,
+    role_id: "3",
+  },
+  isLoggedIn: false,
 };
 
-export const userReducer = (state = userInitial, action) => {
+export const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "SET_USER":
+    case LOGIN_USER:
+      return { ...state, user: action.payload, isLoggedIn: true };
+    case LOGOUT_USER:
       return {
         ...state,
-        userName: action.payload.name,
-        userMail: action.payload.email,
-        login: action.payload.login,
-        userPicture: action.payload.gravatar,
+        user: {},
+        isLoggedIn: false,
       };
-    case "LOGIN_SUCCESS":
-      return {
-        ...state,
-
-        token: action.payload.token,
-        login: true,
-      };
-
-    case "LOGIN_UNSUCCESS":
-      return {
-        ...state,
-        error: action.payload,
-        login: false,
-      };
-
-    case "LOGOUT":
-      return {
-        ...state,
-        userName: null,
-        userMail: null,
-        userPicture: null,
-        login: false,
-      };
-
     default:
       return state;
   }

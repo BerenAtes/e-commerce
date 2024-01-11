@@ -1,12 +1,9 @@
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { loginUser, userLogin } from "../store/actions/userAction";
-import { AxiosInstance } from "../components/Api/api";
-import { toast } from "react-toastify";
+import { userLogin } from "../store/actions/userAction";
 
 const Login = () => {
-  //React Hook Form kullanilarak formun durumunu yonetme
   const {
     register,
     handleSubmit,

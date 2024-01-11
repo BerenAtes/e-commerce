@@ -16,11 +16,12 @@ export const userLogin = (data, history) => {
 
         dispatch(loginUser(response.data));
         localStorage.setItem("token", response.data.token);
-        toast.success("Welcome back!");
+        toast.success("Hoşgeldiniz");
         history.push("/");
       })
       .catch((error) => {
         console.error("Error:", error);
+        console.log("Server response:", error.response);
         toast.error("Error occurred: " + error.response.data.message);
       });
   };
@@ -30,6 +31,6 @@ export const userLogout = () => {
   return (dispatch) => {
     dispatch(logoutUser());
     localStorage.removeItem("token");
-    console.log("Cikis yapildi");
+    console.log("Hesabınızdan çıkış yapılmıştır.");
   };
 };

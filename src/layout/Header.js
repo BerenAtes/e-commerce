@@ -18,7 +18,7 @@ import like from "../assets/icons/like.svg";
 import { Link } from "react-router-dom";
 import Gravatar from "react-gravatar";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom";
 import { userLogout } from "../store/actions/userAction";
 
 export default function Header() {
@@ -100,7 +100,10 @@ export default function Header() {
                   <span> Login</span>
                 </Link>
                 <span> /</span>
-                <Link to="/signup">
+                <Link
+                  to="/Register
+                "
+                >
                   <span> Register</span>
                 </Link>
               </div>

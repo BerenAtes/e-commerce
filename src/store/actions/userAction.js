@@ -1,35 +1,35 @@
-import { AxiosInstance, renewAxiosInstance } from "../../components/Api/api";
+import { toast } from "react-toastify";
+import { AxiosInstance } from "../../components/Api/api";
 
-export const setUser = (user) => ({
-  type: "SET_USER",
-  payload: user,
-});
+export const LOGIN_USER = "LOGIN_USER";
+export const LOGOUT_USER = "LOGOUT_USER";
 
-export const login = (data) => {
-  return {
-    type: "LOGIN_SUCCESS",
-    payload: data,
+export const loginUser = (user) => ({ type: LOGIN_USER, payload: user });
+
+export const logoutUser = () => ({ type: LOGOUT_USER });
+
+export const userLogin = (data, history) => {
+  return (dispatch) => {
+    AxiosInstance.post("/login", data)
+      .then((response) => {
+        console.log(response.data);
+
+        dispatch(loginUser(response.data));
+        localStorage.setItem("token", response.data.token);
+        toast.success("Welcome back!");
+        history.push("/");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        toast.error("Error occurred: " + error.response.data.message);
+      });
   };
 };
 
 export const userLogout = () => {
-  return {
-    type: "LOGOUT",
-  };
-};
-
-export const userLogin = (login) => {
-  return async (dispatch) => {
-    return AxiosInstance.post("/login", login)
-      .then((response) => {
-        localStorage.setItem("token", response.data.token);
-        dispatch(login(response.data));
-        renewAxiosInstance();
-        return response;
-      })
-      .catch((error) => {
-        dispatch({ type: "LOGIN_UNSUCCESS", payload: error });
-        throw error;
-      });
+  return (dispatch) => {
+    dispatch(logoutUser());
+    localStorage.removeItem("token");
+    console.log("Cikis yapildi");
   };
 };

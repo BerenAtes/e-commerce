@@ -1,50 +1,24 @@
-import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { loginUser, userLogin } from "../store/actions/userAction";
+import { AxiosInstance } from "../components/Api/api";
 import { toast } from "react-toastify";
-import { userLogin, setUser } from "../store/actions/userAction";
-//import gravatar from "gravatar";
 
 const Login = () => {
+  //React Hook Form kullanilarak formun durumunu yonetme
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const dispatch = useDispatch();
-  const navigate = useHistory();
+  const history = useHistory();
 
-  //const getGravatar = (email) => {
-  //return gravatar.url(email, { s: "100", r: "x", d: "wavatar" }, true);
-  //};
-
-  const loginSubmit = (data) => {
-    dispatch(userLogin(data))
-      .then(async (response) => {
-        console.log("response", response);
-        if (response.data && response.data.token) {
-          //const gravatar = getGravatar(data.email);
-          localStorage.setItem("token", response.data.token);
-          dispatch(
-            setUser({
-              name: response.data.name,
-              email: data.email,
-              //gravatar: gravatar,
-              isLoggedIn: true,
-            })
-          );
-          toast.success("Logged in successfully!");
-          navigate("/");
-        } else {
-          throw new Error("Login failed: No token received");
-        }
-      })
-      .catch((error) => {
-        toast.error("Login failed: " + error.message);
-      });
+  const onSubmit = (data) => {
+    dispatch(userLogin(data, history));
   };
-  const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
   return (
     <div
@@ -56,7 +30,7 @@ pt-10 px-6"
           Log In
         </h2>
         <div className="bg-white p-8 border border-gray-300 mt-6 rounded-lg shadow-lg">
-          <form onSubmit={handleSubmit(loginSubmit)} className="space-y-4">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div className="mb-6">
               <label
                 htmlFor="email"
@@ -70,7 +44,7 @@ pt-10 px-6"
                 {...register("email", {
                   required: "Email is required",
                   pattern: {
-                    value: emailPattern,
+                    value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
                     message: "Invalid email format",
                   },
                 })}

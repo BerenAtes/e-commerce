@@ -1,4 +1,4 @@
-import { AxiosInstance } from "../../components/Api";
+import { AxiosInstance } from "../../components/Api/api";
 
 export const setRoles = (roles) => ({
   type: "SET_ROLES",

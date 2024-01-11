@@ -18,24 +18,15 @@ import { loginUser, logoutUser } from "../store/actions/userAction";
 export default function PageContent() {
   const dispatch = useDispatch();
 
-  //Componentin yuklenmesi aninda rol bilgilerini API'den getirme
-
   useEffect(() => {
-    //Sign up formun role id'lerini fetch et!
     dispatch(setRoles());
     dispatch(setCategories());
 
-    //Local'de token bilgisi var mi?
     const token = localStorage.getItem("token");
-
-    //token varsa, backend'e request atarak kontrol edicek
     if (token) {
-      //backend e istek gonder
-
       AxiosInstance.get("/verify")
         .then((response) => {
           console.log("token verify res > ", response);
-          //login oldu
 
           const user = response.data;
           dispatch(loginUser(user));

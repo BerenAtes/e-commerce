@@ -61,6 +61,9 @@ export default function PageContent() {
       <Route path="/Login">
         <Login />
       </Route>
+      <Route path="/Register">
+        <Register />
+      </Route>
       <Route path="/home">
         <Home />
       </Route>

@@ -100,10 +100,7 @@ export default function Header() {
                   <span> Login</span>
                 </Link>
                 <span> /</span>
-                <Link
-                  to="/Register
-                "
-                >
+                <Link to="/Register">
                   <span> Register</span>
                 </Link>
               </div>

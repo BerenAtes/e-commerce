@@ -1,3 +1,10 @@
+import {
+  SET_CATEGORIES,
+  SET_LANGUAGE,
+  SET_ROLES,
+  SET_THEME,
+} from "../actions/globalAction";
+
 const globalInitialState = {
   roles: [],
   categories: [],

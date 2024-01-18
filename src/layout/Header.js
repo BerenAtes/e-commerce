@@ -119,7 +119,7 @@ export default function Header() {
                   email={user.email}
                   className="rounded-full w-9 mb-[1rem]"
                 />
-                <p className="flex text-black text-[.9rem] px-3 tracking-wider pb-[1rem]">
+                <p className="flex text-clr-second text-[.9rem] px-3 tracking-wider pb-[1rem]">
                   {user.name}
                 </p>
               </div>
@@ -134,6 +134,19 @@ export default function Header() {
                 </Link>
               </div>
             )}
+            <div>
+              {user.name ? (
+                <div className="flex justify-end mr-[1rem] pt-[.3rem] mb-[1rem]">
+                  <button
+                    onClick={() => handleLogout()}
+                    className="text-[.8rem] px-2 py-1 bg-bgclr-primary text-clr-light font-bold rounded-md "
+                  >
+                    Logout
+                    <hr />
+                  </button>
+                </div>
+              ) : null}
+            </div>
 
             <li className="s hidden md:inline-block ">
               <IconIcon imgUrl={search} classText="text-xl" />
@@ -148,19 +161,6 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-      </div>
-      <div>
-        {user.name ? (
-          <div className="flex justify-end mr-[8rem] mb-[1rem]">
-            <button
-              onClick={() => handleLogout()}
-              className="text-[.8rem] px-2 py-1 bg-bgclr-dark text-clr-light font-bold rounded-md "
-            >
-              Logout
-              <hr />
-            </button>
-          </div>
-        ) : null}
       </div>
     </header>
   );

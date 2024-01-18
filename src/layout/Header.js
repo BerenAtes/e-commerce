@@ -112,11 +112,14 @@ export default function Header() {
             </li>
           </ul>
 
-          <ul className="flex flex-col md:flex-row row nowrap font-bold text-clr-primary gap-x-2 mr-2">
+          <ul className="flex flex-col md:flex-row row nowrap font-bold text-clr-primary gap-x-2 mb-[1rem]">
             {isLoggedIn ? (
-              <div className="flex flex-wrap items-center px-2 gap-1">
-                <Gravatar email={user.email} className="rounded-full w-12" />
-                <p className="flex text-black px-3 tracking-wider">
+              <div className="flex flex-wrap items-center px-2 ">
+                <Gravatar
+                  email={user.email}
+                  className="rounded-full w-9 mb-[1rem]"
+                />
+                <p className="flex text-black text-[.9rem] px-3 tracking-wider pb-[1rem]">
                   {user.name}
                 </p>
               </div>
@@ -148,12 +151,13 @@ export default function Header() {
       </div>
       <div>
         {user.name ? (
-          <div className="flex justify-end mr-[10rem] mb-[1rem]">
+          <div className="flex justify-end mr-[8rem] mb-[1rem]">
             <button
               onClick={() => handleLogout()}
-              className="text-sm px-2 py-1 bg-bgclr-dark text-clr-light font-bold rounded-md "
+              className="text-[.8rem] px-2 py-1 bg-bgclr-dark text-clr-light font-bold rounded-md "
             >
               Logout
+              <hr />
             </button>
           </div>
         ) : null}

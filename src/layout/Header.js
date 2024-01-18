@@ -20,6 +20,7 @@ import Gravatar from "react-gravatar";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { userLogout } from "../store/actions/userAction";
+import CartDropdown from "../components/CartDropdown";
 
 export default function Header() {
   const { user, isLoggedIn } = useSelector((state) => state.user);
@@ -37,12 +38,12 @@ export default function Header() {
           <nav className="flex items-center justify-between flex-wrap">
             <div className="flex gap-4">
               <IconIcon
-                className="text-[0.875rem] font-bold mb-[1rem] mr-[5rem]"
+                className="text-[0.875rem] font-bold mb-[1rem] mr-[5rem] flex-col grid grid-cols-[auto,1fr]"
                 imgUrl={telephone}
                 text="(225) 555-0118"
               />
               <IconIcon
-                className="text-[0.875rem] font-bold"
+                className="text-[0.875rem] font-bold flex-col grid grid-cols-[auto,1fr]"
                 imgUrl={mail}
                 text="michelle.rivera@example.com"
               />
@@ -66,23 +67,48 @@ export default function Header() {
         <nav className="mt-4 md:mt-0 flex-grow flex flex-col md:flex-row justify-between">
           <ul className="flex flex-col md:flex-row text-clr-second gap-6 font-bold mb-4 md:mb-0">
             <li>
-              <NavLink to="/home">Home</NavLink>
+              <NavLink
+                to="/home"
+                className="nav-link hover:text-blue-500 transition-colors duration-300"
+              >
+                Home
+              </NavLink>
             </li>
             <li className="text-clr-dark">
-              <NavLink to="/shop">Shop</NavLink>
+              <CartDropdown />
               <i></i>
             </li>
             <li>
-              <NavLink to="/about">About</NavLink>
+              <NavLink
+                to="/about"
+                className="nav-link hover:text-blue-500 transition-colors duration-300"
+              >
+                About
+              </NavLink>
             </li>
             <li>
-              <NavLink to="#">Blog</NavLink>
+              <NavLink
+                to="#"
+                className="nav-link hover:text-blue-500 transition-colors duration-300"
+              >
+                Blog
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/contact">Contact</NavLink>
+              <NavLink
+                to="/contact"
+                className="nav-link hover:text-blue-500 transition-colors duration-300"
+              >
+                Contact
+              </NavLink>
             </li>
             <li>
-              <NavLink to="#">Pages</NavLink>
+              <NavLink
+                to="#"
+                className="nav-link hover:text-blue-500 transition-colors duration-300"
+              >
+                Pages
+              </NavLink>
             </li>
           </ul>
 
@@ -95,7 +121,7 @@ export default function Header() {
                 </p>
               </div>
             ) : (
-              <div className="flex flex-wrap items-center px-2 gap-1">
+              <div className="flex flex-wrap items-center px-2 mb-[2rem]">
                 <Link to="/login">
                   <span> Login</span>
                 </Link>

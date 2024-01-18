@@ -53,7 +53,7 @@ const Register = () => {
         bank_account: data.bank_account,
       };
     }
-    await AxiosInstance.post("/signup", formData)
+    await AxiosInstance.post("signup", formData)
       .then((res) => {
         console.log("Post", res.data.message);
         toast.success(res.data.message);

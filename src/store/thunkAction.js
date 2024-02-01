@@ -1,34 +1,19 @@
-// productAction.js
+// productActions.js
 import { AxiosInstance } from "../../components/Api/api";
+import {
+  setFetchState,
+  setPageCount,
+  setProductList,
+  setTotalProductCount,
+} from "./actions/productAction";
 
-export const setProductList = (productList) => ({
-  type: "SET_PRODUCTS",
-  payload: productList,
-});
-
-export const setTotalProductCount = (total) => ({
-  type: "SET_TOTAL_PRODUCT_COUNT",
-  payload: total,
-});
-
-export const setPageCount = (count) => ({
-  type: "SET_PAGE_COUNT",
-  payload: count,
-});
-
-export const setActivePage = (page) => ({
-  type: "SET_ACTIVE_PAGE",
-  payload: page,
-});
-
-export const setFetchState = (fetchState) => ({
-  type: "SET_FETCH_STATE",
-  payload: fetchState,
-});
+// ...
 
 // Yeni fonksiyon
 export const fetchProductsByCategory = (categoryCode, params = {}) => {
   return (dispatch, getState) => {
+    dispatch(setFetchState("loading")); // Veri çekme durumunu güncelle
+
     AxiosInstance.get(`/products/category/${categoryCode}`, { params: params })
       .then((response) => {
         if (params.offset) {
@@ -41,14 +26,14 @@ export const fetchProductsByCategory = (categoryCode, params = {}) => {
         }
         dispatch(setTotalProductCount(response.data.total));
         dispatch(setPageCount(response.data.pages));
-        dispatch(setFetchState("success"));
+        dispatch(setFetchState("success")); // Başarılı veri çekme durumunu güncelle
       })
       .catch((err) => {
         console.error(
           `Error fetching products for category ${categoryCode}:`,
           err
         );
-        dispatch(setFetchState("error"));
+        dispatch(setFetchState("error")); // Hata durumunu güncelle
       });
   };
 };

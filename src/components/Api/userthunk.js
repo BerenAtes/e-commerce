@@ -33,7 +33,7 @@ export const postLogin = (data) => {
         toast.error("Your password or email is wrong!");
         dispatch(setUser(FETCH_STATES.failed));
         localStorage.removeItem("token");
-        // Propagate the error so that the promise is rejected
+
         throw err;
       });
   };

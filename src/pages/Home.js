@@ -26,7 +26,34 @@ import productimg8 from "../assets/ProductCard/img8.png";
 import HomeSlider1 from "../utils/slider1";
 import HomeSlider2 from "../utils/slider2";
 
+import { useEffect, useState } from "react";
+
 export default function Home() {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://workintech-fe-ecommerce.onrender.com/products"
+        );
+        const data = await response.json();
+
+        // sell_count'a göre sırala
+        const sortedProducts = data.products.sort(
+          (a, b) => b.sell_count - a.sell_count
+        );
+
+        // İlk 8 ürünü al
+        const top8Products = sortedProducts.slice(0, 8);
+
+        setProducts(top8Products);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <>
       <section>
@@ -79,15 +106,21 @@ export default function Home() {
         <p className="text-clr-second font-semibold text-[14px]">
           Problems trying to resolve the conflict between{" "}
         </p>
-        <div className="py-[5rem] flex flex-wrap justify-center gap-y-[5rem] gap-x-[1.875rem]  ">
-          <ProductCard imgUrl={productimg} />
-          <ProductCard imgUrl={productimg2} />
-          <ProductCard imgUrl={productimg3} />
-          <ProductCard imgUrl={productimg4} />
-          <ProductCard imgUrl={productimg5} />
-          <ProductCard imgUrl={productimg6} />
-          <ProductCard imgUrl={productimg7} />
-          <ProductCard imgUrl={productimg8} />
+        <div className="flex justify-center items-center w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-16 my-8 md:my-16 py-4 gap-[2rem]">
+            {products.map((product, index) => (
+              <ProductCard
+                key={index}
+                className="w-full mb-8 ml-[.5rem]"
+                imgUrl={product.images[0].url}
+                name={product.name}
+                description={product.description}
+                price={product.price}
+                discountedPrice={product.discountedPrice}
+                rating={product.rating}
+              />
+            ))}
+          </div>
         </div>
       </section>
       <section>

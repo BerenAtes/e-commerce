@@ -16,7 +16,11 @@ const productInitialState = {
 export function productReducer(state = productInitialState, action) {
   switch (action.type) {
     case "SET_PRODUCT_LIST":
-      return { ...state, productList: action.payload };
+      return {
+        ...state,
+        productList: action.payload,
+        fetchState: FETCH_STATES.fetched,
+      };
     case "SET_TOTAL_PRODUCT_COUNT":
       return { ...state, totalProductCount: action.payload };
     case "SET_PAGE_COUNT":

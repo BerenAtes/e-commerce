@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import axios from "axios";
 import {
   Dropdown,
   DropdownToggle,
@@ -8,15 +10,18 @@ import {
   DropdownItem,
   NavLink,
 } from "reactstrap";
-
+import ProductListCard from "./ProductListCard";
 const CartDropdown = () => {
   const categories = useSelector((store) => store.global.categories);
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const dropdownRef = useRef(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [products, setProducts] = useState([]);
 
-  const history = useHistory();
   console.log("categories", categories);
   const categoriesWomen = categories.filter(
     (category) => category.gender === "k"
@@ -62,8 +67,21 @@ const CartDropdown = () => {
     }
   }, [isHovered]);
 
+  const handleCategoryClick = async (categoryId) => {
+    try {
+      // Kategoriye göre ürünleri getir
+      const response = await axios.get(
+        `https://workintech-fe-ecommerce.onrender.com/products?category=${categoryId}`
+      );
+      setProducts(response.data.products);
+      setSelectedCategory(categoryId);
+    } catch (error) {
+      console.error("Error fetching products by category:", error);
+    }
+  };
+
   return (
-    <div className="flex">
+    <div className="flex flex-wrap">
       <Dropdown
         isOpen={dropdownOpen && isHovered}
         toggle={handleToggle}
@@ -102,12 +120,16 @@ const CartDropdown = () => {
                 {categoriesWomen.map((category, i) => (
                   <NavLink
                     key={i}
-                    href={`/shopping/:${
+                    href={`/shopping/${
                       category.gender === "k" ? "kadin" : "erkek"
-                    }/:${category.code.slice(2)}`}
+                    }/${category.code.slice(2)}`}
                     className="p-2"
                   >
-                    <DropdownItem>{category.title}</DropdownItem>
+                    <DropdownItem
+                      onClick={() => handleCategoryClick(category.id)}
+                    >
+                      {category.title}
+                    </DropdownItem>
                   </NavLink>
                 ))}
               </div>
@@ -119,12 +141,16 @@ const CartDropdown = () => {
                 {categoriesMen.map((category, i) => (
                   <NavLink
                     key={i}
-                    href={`/shopping/:${
+                    href={`/shopping/${
                       category.gender === "k" ? "kadin" : "erkek"
-                    }/:${category.code.slice(2)}`}
+                    }/${category.code.slice(2)}`}
                     className="p-2"
                   >
-                    <DropdownItem>{category.title}</DropdownItem>
+                    <DropdownItem
+                      onClick={() => handleCategoryClick(category.id)}
+                    >
+                      {category.title}
+                    </DropdownItem>
                   </NavLink>
                 ))}
               </div>
@@ -132,6 +158,23 @@ const CartDropdown = () => {
           )}
         </DropdownMenu>
       </Dropdown>
+
+      <div className="flex flex-wrap justify-center gap-y-4 md:flex-row md:flex-nowrap w-full mt-8">
+        {products.map((product) => (
+          <div
+            key={product.id}
+            className={`w-full sm:w-auto ${
+              selectedCategory === product.category_id ? "selected" : ""
+            } grow relative`}
+          >
+            <ProductListCard
+              imgUrl={product.images[0].url}
+              title={product.name}
+              text={`(${product.stock} Items)`}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

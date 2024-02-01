@@ -3,25 +3,14 @@ import ProductCard from "../components/ProductCard";
 import ProductListCard from "../components/ProductListCard";
 import PagesPath from "../components/PagesPath";
 import IconIcon from "../components/Icon";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 import clothes from "../assets/productList/cloths/cloths1.svg";
 import clothes2 from "../assets/productList/cloths/cloths2.svg";
 import clothes3 from "../assets/productList/cloths/cloths3.svg";
 import clothes4 from "../assets/productList/cloths/123.svg";
 import clothes5 from "../assets/productList/cloths/cloths5.svg";
-
-import shop1 from "../assets/productList/shop/1.png";
-import shop2 from "../assets/productList/shop/2.png";
-import shop3 from "../assets/productList/shop/3.png";
-import shop4 from "../assets/productList/shop/4.png";
-import shop5 from "../assets/productList/shop/5.png";
-import shop6 from "../assets/productList/shop/6.png";
-import shop7 from "../assets/productList/shop/7.png";
-import shop8 from "../assets/productList/shop/8.png";
-import shop9 from "../assets/productList/shop/9.png";
-import shop10 from "../assets/productList/shop/10.png";
-import shop11 from "../assets/productList/shop/11.png";
-import shop12 from "../assets/productList/shop/12.png";
 
 import views1 from "../assets/icons/views1.svg";
 import views2 from "../assets/icons/views2.svg";
@@ -33,6 +22,36 @@ import btn3 from "../assets/icons/3btn.svg";
 import next from "../assets/icons/Next.svg";
 
 export default function ProductList() {
+  const [products, setProducts] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://workintech-fe-ecommerce.onrender.com/products"
+        );
+        setProducts(response.data.products);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+  const handleCategoryClick = (categoryId) => {
+    // Önce products dizisinin tanımlı olduğunu ve boş olmadığını kontrol et
+    if (products && Array.isArray(products)) {
+      // Ardından filter işlemini gerçekleştir
+      const filteredProducts = products.filter(
+        (product) => product.category_id === categoryId
+      );
+      // Diğer işlemleri gerçekleştir...
+    } else {
+      console.error("products is not defined or not an array.");
+    }
+  };
+
   return (
     <>
       <div className="bg-bgclr-ligth-gray-1">
@@ -113,19 +132,19 @@ export default function ProductList() {
             </div>
           </div>
           <div className="flex justify-center items-center w-full">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-16 my-8 md:my-16 py-4 gap-[2rem] ">
-              <ProductCard className="w-full mb-8" imgUrl={shop1} />
-              <ProductCard className="w-full mb-8" imgUrl={shop2} />
-              <ProductCard className="w-full mb-8" imgUrl={shop3} />
-              <ProductCard className="w-full mb-8" imgUrl={shop4} />
-              <ProductCard className="w-full mb-8" imgUrl={shop5} />
-              <ProductCard className="w-full mb-8" imgUrl={shop6} />
-              <ProductCard className="w-full mb-8" imgUrl={shop7} />
-              <ProductCard className="w-full mb-8" imgUrl={shop8} />
-              <ProductCard className="w-full mb-8" imgUrl={shop9} />
-              <ProductCard className="w-full mb-8" imgUrl={shop10} />
-              <ProductCard className="w-full mb-8" imgUrl={shop11} />
-              <ProductCard className="w-full mb-8" imgUrl={shop12} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-16 my-8 md:my-16 py-4 gap-[2rem]">
+              {products.map((product, index) => (
+                <ProductCard
+                  key={index}
+                  className="w-full mb-8 ml-[.5rem]"
+                  imgUrl={product.images[0].url}
+                  name={product.name}
+                  description={product.description}
+                  price={product.price}
+                  discountedPrice={product.discountedPrice}
+                  rating={product.rating}
+                />
+              ))}
             </div>
           </div>
 

@@ -15,6 +15,7 @@ import { AxiosInstance, renewAxiosInstance } from "../components/Api/api";
 import { setCategories, setRoles } from "../store/actions/globalAction";
 import { loginUser, logoutUser } from "../store/actions/userAction";
 import { ToastContainer } from "react-toastify";
+import CategoryCard from "../components/CategoryCard";
 
 export default function PageContent() {
   const dispatch = useDispatch();
@@ -66,6 +67,7 @@ export default function PageContent() {
         <Route path="/Register">
           <Register />
         </Route>
+        <Route path="/shopping/:gender/:category" component={ProductList} />
         <Route path="/home">
           <Home />
         </Route>

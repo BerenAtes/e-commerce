@@ -14,15 +14,6 @@ import featuredimg1 from "../assets/featuredPosts/img1.svg";
 import featuredimg2 from "../assets/featuredPosts/img2.svg";
 import featuredimg3 from "../assets/featuredPosts/img3.svg";
 
-import productimg from "../assets/ProductCard/img1.png";
-import productimg2 from "../assets/ProductCard/img2.png";
-import productimg3 from "../assets/ProductCard/img3.png";
-import productimg4 from "../assets/ProductCard/img4.png";
-import productimg5 from "../assets/ProductCard/img5.png";
-import productimg6 from "../assets/ProductCard/img6.png";
-import productimg7 from "../assets/ProductCard/img7.png";
-import productimg8 from "../assets/ProductCard/img8.png";
-
 import HomeSlider1 from "../utils/slider1";
 import HomeSlider2 from "../utils/slider2";
 
@@ -38,12 +29,10 @@ export default function Home() {
         );
         const data = await response.json();
 
-        // sell_count'a göre sırala
         const sortedProducts = data.products.sort(
           (a, b) => b.sell_count - a.sell_count
         );
 
-        // İlk 8 ürünü al
         const top8Products = sortedProducts.slice(0, 8);
 
         setProducts(top8Products);

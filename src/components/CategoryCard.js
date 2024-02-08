@@ -2,7 +2,6 @@ import React from "react";
 
 export default function CategoryCard({ imgUrl, textBtn, className, onClick }) {
   const handleClick = () => {
-    // onClick prop'u varsa ve bir fonksiyon ise çağır
     if (onClick && typeof onClick === "function") {
       onClick();
     }

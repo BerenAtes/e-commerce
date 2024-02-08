@@ -14,19 +14,17 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <BrowserRouter>
-      <React.StrictMode>
-        <App />
-        <ToastContainer
-          position="top-center"
-          autoClose={3000}
-          hideProgressBar={true}
-          newestOnTop={true}
-          closeOnClick
-          rtl={false}
-          draggable
-          theme="colored"
-        />
-      </React.StrictMode>
+      <App />
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={true}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        draggable
+        theme="colored"
+      />
     </BrowserRouter>
   </Provider>
 );

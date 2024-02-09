@@ -1,5 +1,4 @@
-import { useHistory } from "react-router-dom";
-import Product from "../pages/Product";
+import { Link } from "react-router-dom";
 
 export default function ProductCard({
   imgUrl,
@@ -9,18 +8,15 @@ export default function ProductCard({
   price,
   discountedPrice,
   rating,
+  productId, // yeni eklenen prop
 }) {
-  const history = useHistory();
-  const handleCardClick = () => {
-    history.push("/shop/product");
-  };
   const truncatedDescription =
     description && description.length > 20
       ? `${description.slice(0, 20)}...`
       : description;
 
   return (
-    <div className={className} onClick={handleCardClick}>
+    <Link to={`/shop/product/${productId}`} className={className}>
       <div className="w-[230px] relative  aspect-[80/100] ">
         <img src={imgUrl} className="" alt="img-product" />
       </div>
@@ -46,6 +42,6 @@ export default function ProductCard({
           <div className="pr-[1rem] w-[5%] aspect-square rounded-full bg-bgclr-dark" />
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

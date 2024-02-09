@@ -5,6 +5,8 @@ import PagesPath from "../components/PagesPath";
 import IconIcon from "../components/Icon";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link, useParams } from "react-router-dom";
+import slugify from "slugify";
 
 import views1 from "../assets/icons/views1.svg";
 import views2 from "../assets/icons/views2.svg";
@@ -19,6 +21,8 @@ export default function ProductList() {
   const [products, setProducts] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [selectedCategoryId, setSelectedCategoryId] = useState(null);
+  const { gender, categorySlug } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,6 +38,7 @@ export default function ProductList() {
 
     fetchData();
   }, []);
+
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -63,15 +68,26 @@ export default function ProductList() {
     selectTopCategories();
   }, [categories]);
 
-  const handleCategoryClick = (categoryId) => {
-    if (products && Array.isArray(products)) {
-      const filteredProducts = products.filter(
-        (product) => product.category_id === categoryId
+  useEffect(() => {
+    if (categorySlug && categories.length > 0) {
+      const selectedCategory = categories.find(
+        (category) =>
+          slugify(category.title, { lower: true }) === categorySlug &&
+          category.gender === (gender === "erkek" ? "e" : "k")
       );
-    } else {
-      console.error("products is not defined or not an array.");
+      if (selectedCategory) {
+        setSelectedCategoryId(selectedCategory.id);
+      }
     }
+  }, [categorySlug, categories, gender]);
+
+  const handleCategoryClick = (categoryId) => {
+    setSelectedCategoryId(categoryId);
   };
+
+  const filteredProducts = selectedCategoryId
+    ? products.filter((product) => product.category_id === selectedCategoryId)
+    : products;
 
   return (
     <>
@@ -84,17 +100,24 @@ export default function ProductList() {
           </div>
           <div className="flex flex-wrap justify-center gap-y-4 md:flex-row md:flex-nowrap">
             {selectedCategories.map((category, index) => (
-              <div
-                className="w-full h-43 sm:w-1/2 md:w-1/3 lg:w-1/6 p-2"
-                key={index}
-              >
-                <ProductListCard
-                  imgUrl={category.img}
-                  title={category.title}
-                  text={`5 Items in ${category.title}`}
-                  className="w-full mb-8"
-                  style={{ height: "80rem", objectFit: "cover" }}
-                />
+              <div className="flex w-full md:w-1/4 lg:w-1/6 p-2" key={index}>
+                <div className="flex flex-col justify-between w-full h-full">
+                  <Link
+                    to={`/shop/${
+                      category.gender === "e" ? "erkek" : "kadin"
+                    }/${slugify(category.title, {
+                      lower: true,
+                    })}`}
+                  >
+                    <ProductListCard
+                      imgUrl={category.img}
+                      title={category.title}
+                      text={`5 Items in ${category.title}`}
+                      className="w-full mb-1"
+                      style={{ objectFit: "cover" }}
+                    />
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
@@ -105,7 +128,7 @@ export default function ProductList() {
         <section className="container-big py-[5rem] flex flex-wrap justify-center gap-y-[1rem] gap-x-[3rem] ">
           <div className="text-clr-second flex flex-row justify-center items-center justify-between py-[1.5em]">
             <div className="text-[0.875rem] font-bold pl-[.5rem]">
-              Showing all 12 results
+              Showing all {products.length} results
             </div>
             <div className="flex items-center gap-x-[1rem]">
               <span className="text-[0.875rem] font-bold pl-[1rem] pr-[0]">
@@ -137,7 +160,7 @@ export default function ProductList() {
           </div>
           <div className="flex justify-center items-center w-full">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-16 my-8 md:my-16 py-4 gap-[2rem]">
-              {products.map((product, index) => (
+              {filteredProducts.map((product, index) => (
                 <ProductCard
                   key={index}
                   className="w-full mb-8 ml-[.5rem]"

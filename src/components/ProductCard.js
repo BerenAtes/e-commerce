@@ -8,7 +8,7 @@ export default function ProductCard({
   price,
   discountedPrice,
   rating,
-  productId, // yeni eklenen prop
+  productId,
 }) {
   const truncatedDescription =
     description && description.length > 20

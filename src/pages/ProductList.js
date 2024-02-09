@@ -21,7 +21,7 @@ export default function ProductList() {
   const [products, setProducts] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [selectedCategoryId, setSelectedCategoryId] = useState(null);
+  const [selectedCategoryId, setSelectedCategoryId] = useState();
   const { gender, categorySlug } = useParams();
   const [filteredProducts, setFilteredProducts] = useState([]);
   const fetchCategories = async () => {
@@ -54,19 +54,13 @@ export default function ProductList() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Tüm kategorileri al
         const allCategories = await fetchCategories();
-
-        // Her bir kategori için ürünleri al
         const productsPromises = allCategories.map(async (category) => {
           const products = await fetchProductsByCategory(category.id);
           return products;
         });
-
-        // Tüm ürünleri birleştir
         const allProducts = (await Promise.all(productsPromises)).flat();
 
-        // Ürünleri duruma kaydet
         setProducts(allProducts);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -92,6 +86,23 @@ export default function ProductList() {
   }, []);
 
   useEffect(() => {
+    const fetchProductsByCategory = async () => {
+      try {
+        const response = await axios.get(
+          `https://workintech-fe-ecommerce.onrender.com/products?category=${selectedCategoryId}`
+        );
+        setProducts(response.data.products);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    if (selectedCategoryId) {
+      fetchProductsByCategory();
+    }
+  }, [selectedCategoryId]);
+
+  useEffect(() => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
@@ -105,7 +116,7 @@ export default function ProductList() {
 
     fetchCategories();
   }, []);
-
+  console.log("categories:", categories);
   const selectTopCategories = () => {
     if (categories && categories.length > 0) {
       const sortedCategories = [...categories].sort(
@@ -164,10 +175,6 @@ export default function ProductList() {
     }
   }, [categorySlug, categories, gender]);
 
-  const handleCategoryClick = (categoryId) => {
-    setSelectedCategoryId(categoryId);
-  };
-
   useEffect(() => {
     const filteredProducts = selectedCategoryId
       ? products.filter((product) => product.category_id === selectedCategoryId)
@@ -175,10 +182,11 @@ export default function ProductList() {
     setFilteredProducts(filteredProducts);
   }, [selectedCategoryId, products]);
 
-  // filteredProducts yerine products kullanın
   console.log("Filtered:", filteredProducts);
   console.log("Selected Category ID:", selectedCategoryId);
   console.log("Products:", products);
+  console.log("Gender:", gender);
+  console.log("Category Slug:", categorySlug);
 
   return (
     <>
@@ -201,11 +209,15 @@ export default function ProductList() {
                     })}`}
                   >
                     <ProductListCard
+                      key={category.id}
+                      categoryId={category.id}
+                      gender={category.gender}
                       imgUrl={category.img}
                       title={category.title}
                       text={`5 Items in ${category.title}`}
                       className="w-full mb-1"
                       style={{ objectFit: "cover" }}
+                      onClick={() => setSelectedCategoryId(category.id)}
                     />
                   </Link>
                 </div>

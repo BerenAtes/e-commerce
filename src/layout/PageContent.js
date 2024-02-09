@@ -67,7 +67,7 @@ export default function PageContent() {
         <Route path="/Register">
           <Register />
         </Route>
-        <Route path="/shopping/:gender/:category" component={ProductList} />
+        <Route path="/shopping/:gender/:categorySlug" component={ProductList} />
         <Route path="/home">
           <Home />
         </Route>

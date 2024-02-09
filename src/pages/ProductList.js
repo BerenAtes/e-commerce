@@ -23,6 +23,58 @@ export default function ProductList() {
   const [categories, setCategories] = useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
   const { gender, categorySlug } = useParams();
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const fetchCategories = async () => {
+    try {
+      const response = await axios.get(
+        "https://workintech-fe-ecommerce.onrender.com/categories"
+      );
+      const allCategories = response.data;
+      return allCategories;
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+      return [];
+    }
+  };
+  const fetchProductsByCategory = async (categoryId) => {
+    try {
+      const response = await axios.get(
+        `https://workintech-fe-ecommerce.onrender.com/products?category=${categoryId}`
+      );
+      const products = response.data.products;
+      return products;
+    } catch (error) {
+      console.error(
+        `Error fetching products for category ${categoryId}:`,
+        error
+      );
+      return [];
+    }
+  };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Tüm kategorileri al
+        const allCategories = await fetchCategories();
+
+        // Her bir kategori için ürünleri al
+        const productsPromises = allCategories.map(async (category) => {
+          const products = await fetchProductsByCategory(category.id);
+          return products;
+        });
+
+        // Tüm ürünleri birleştir
+        const allProducts = (await Promise.all(productsPromises)).flat();
+
+        // Ürünleri duruma kaydet
+        setProducts(allProducts);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -63,10 +115,41 @@ export default function ProductList() {
       setSelectedCategories(topCategories);
     }
   };
+  useEffect(() => {
+    const fetchProductsByCategory = async (categoryId) => {
+      try {
+        const response = await axios.get(
+          `https://workintech-fe-ecommerce.onrender.com/products?category=${categoryId}`
+        );
+        setProducts(response.data.products);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
 
+    if (selectedCategoryId !== null) {
+      fetchProductsByCategory(selectedCategoryId);
+    }
+  }, [selectedCategoryId]);
   useEffect(() => {
     selectTopCategories();
   }, [categories]);
+  useEffect(() => {
+    const fetchProductsByCategory = async (categoryId) => {
+      try {
+        const response = await axios.get(
+          `https://workintech-fe-ecommerce.onrender.com/products?category=${categoryId}`
+        );
+        setProducts(response.data.products);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    if (selectedCategoryId) {
+      fetchProductsByCategory(selectedCategoryId);
+    }
+  }, [selectedCategoryId]);
 
   useEffect(() => {
     if (categorySlug && categories.length > 0) {
@@ -85,9 +168,17 @@ export default function ProductList() {
     setSelectedCategoryId(categoryId);
   };
 
-  const filteredProducts = selectedCategoryId
-    ? products.filter((product) => product.category_id === selectedCategoryId)
-    : products;
+  useEffect(() => {
+    const filteredProducts = selectedCategoryId
+      ? products.filter((product) => product.category_id === selectedCategoryId)
+      : products;
+    setFilteredProducts(filteredProducts);
+  }, [selectedCategoryId, products]);
+
+  // filteredProducts yerine products kullanın
+  console.log("Filtered:", filteredProducts);
+  console.log("Selected Category ID:", selectedCategoryId);
+  console.log("Products:", products);
 
   return (
     <>
@@ -160,17 +251,25 @@ export default function ProductList() {
           </div>
           <div className="flex justify-center items-center w-full">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-16 my-8 md:my-16 py-4 gap-[2rem]">
-              {filteredProducts.map((product, index) => (
-                <ProductCard
-                  key={index}
-                  className="w-full mb-8 ml-[.5rem]"
-                  imgUrl={product.images[0].url}
-                  name={product.name}
-                  description={product.description}
-                  price={product.price}
-                  discountedPrice={product.discountedPrice}
-                  rating={product.rating}
-                />
+              {products.map((product) => (
+                <Link
+                  to={`/shop/${gender}/${selectedCategoryId}`} // İlgili kategoriye yönlendirme
+                  className="relative overflow-hidden"
+                  key={product.id}
+                >
+                  <ProductCard
+                    key={product.id}
+                    className="w-full mb-8 ml-[.5rem]"
+                    imgUrl={product.images[0].url}
+                    name={product.name}
+                    description={product.description}
+                    price={product.price}
+                    discountedPrice={product.discountedPrice}
+                    rating={product.rating}
+                    productId={product.id} // productId'yi de iletiyoruz
+                    categoryId={selectedCategoryId} // categoryId'yi de iletiyoruz
+                  />
+                </Link>
               ))}
             </div>
           </div>

@@ -26,6 +26,8 @@ export default function ProductList() {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOption, setSortOption] = useState("Popularity");
+  const [loading, setLoading] = useState(true);
+
   const fetchCategories = async () => {
     try {
       const response = await axios.get(
@@ -74,6 +76,7 @@ export default function ProductList() {
         const allProducts = (await Promise.all(productsPromises)).flat();
 
         setProducts(allProducts);
+        setLoading(false); // Veriler yüklendikten sonra loading durumu false olarak ayarlanır.
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -81,7 +84,6 @@ export default function ProductList() {
 
     fetchData();
   }, []);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -221,6 +223,11 @@ export default function ProductList() {
 
   return (
     <>
+      {loading && (
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-100 opacity-75 z-50">
+          <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-24 w-24"></div>
+        </div>
+      )}
       <div className="bg-bgclr-ligth-gray-1">
         <section className="container-big m-auto pt-[5%] pb-[5%] px-[5%]">
           <div className="flex justify-between items-center mb-[1.5em]">
@@ -325,14 +332,6 @@ export default function ProductList() {
               ))}
             </div>
           </div>
-
-          <span className="flex items-center justify-center    ">
-            <IconIcon classText="text-xl   " imgUrl={first} />
-            <IconIcon classText="text-xl  " imgUrl={btn1} />
-            <IconIcon classText="text-xl  " imgUrl={btn2} />
-            <IconIcon classText="text-xl  " imgUrl={btn3} />
-            <IconIcon classText="text-xl  " imgUrl={next} />
-          </span>
         </section>
       </div>
       <Logos />

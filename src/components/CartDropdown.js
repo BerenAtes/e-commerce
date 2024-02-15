@@ -12,7 +12,6 @@ import {
 } from "reactstrap";
 import ProductListCard from "./ProductListCard";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import { Loader } from "react-loader-spinner";
 
 const CartDropdown = () => {
   const categories = useSelector((store) => store.global.categories);
@@ -24,7 +23,6 @@ const CartDropdown = () => {
   const dropdownRef = useRef(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   console.log("categories", categories);
   const categoriesWomen = categories.filter(
@@ -73,7 +71,6 @@ const CartDropdown = () => {
 
   const handleCategoryClick = async (categoryId) => {
     try {
-      setLoading(true);
       const response = await axios.get(
         `https://workintech-fe-ecommerce.onrender.com/products?category=${categoryId}`
       );
@@ -82,7 +79,6 @@ const CartDropdown = () => {
     } catch (error) {
       console.error("Error fetching products by category:", error);
     } finally {
-      setLoading(false);
     }
   };
 
@@ -178,24 +174,20 @@ const CartDropdown = () => {
       </Dropdown>
 
       <div className="flex flex-wrap justify-center gap-y-4 md:flex-row md:flex-nowrap w-full mt-8">
-        {loading ? ( // loading true ise spinner gösterilecek
-          <Loader type="Puff" color="#00BFFF" height={100} width={100} />
-        ) : (
-          products.map((product) => (
-            <div
-              key={product.id}
-              className={`w-full sm:w-auto ${
-                selectedCategory === product.category_id ? "selected" : ""
-              } grow relative`}
-            >
-              <ProductListCard
-                imgUrl={product.images[0].url}
-                title={product.name}
-                text={`(${product.stock} Items)`}
-              />
-            </div>
-          ))
-        )}
+        {products.map((product) => (
+          <div
+            key={product.id}
+            className={`w-full sm:w-auto ${
+              selectedCategory === product.category_id ? "selected" : ""
+            } grow relative`}
+          >
+            <ProductListCard
+              imgUrl={product.images[0].url}
+              title={product.name}
+              text={`(${product.stock} Items)`}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );

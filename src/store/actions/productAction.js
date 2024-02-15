@@ -1,4 +1,3 @@
-// productAction.js
 import { AxiosInstance } from "../../components/Api/api";
 
 export const setProductList = (productList) => ({
@@ -26,7 +25,6 @@ export const setFetchState = (fetchState) => ({
   payload: fetchState,
 });
 
-// Yeni fonksiyon
 export const fetchProductsByCategory = (categoryCode, params = {}) => {
   return (dispatch, getState) => {
     AxiosInstance.get(`/products/category/${categoryCode}`, { params: params })

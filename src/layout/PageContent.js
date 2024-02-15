@@ -8,6 +8,7 @@ import Team from "../pages/Team";
 import Contact from "../pages/Contact";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
+import CategoriesWomen from "../pages/CategoriesWomen";
 
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
@@ -16,6 +17,10 @@ import { setCategories, setRoles } from "../store/actions/globalAction";
 import { loginUser, logoutUser } from "../store/actions/userAction";
 import { ToastContainer } from "react-toastify";
 import CategoryCard from "../components/CategoryCard";
+import CartDropdown from "../components/CartDropdown";
+import categoriesWomen from "../pages/CategoriesWomen";
+import { Link } from "react-router-dom";
+import CategoriesMen from "../pages/CategoriesMen";
 
 export default function PageContent() {
   const dispatch = useDispatch();
@@ -67,6 +72,8 @@ export default function PageContent() {
         <Route path="/Register">
           <Register />
         </Route>
+        <Route path="/categories/kadin" component={CategoriesWomen} />
+        <Route path="/categories/erkek" component={CategoriesMen} />
         <Route path="/shopping/:gender/:categorySlug" component={ProductList} />
         <Route path="/home">
           <Home />

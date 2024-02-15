@@ -12,6 +12,7 @@ export default function ProductListCard({
   gender,
   categorySlug,
 }) {
+  const genderText = gender === "k" ? "Kadın" : gender === "e" ? "Erkek" : "";
   return (
     <div className="relative overflow-hidden">
       <div className="cursor-pointer relative overflow-hidden">
@@ -22,11 +23,11 @@ export default function ProductListCard({
         />
       </div>
       <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-center text-clr-light">
-        <span className="font-bold block">{title}</span>
-        <span className="text-[0.875rem] block">
-          {text} {gender}
+        <span className="font-bold block">
+          {genderText} {title}
         </span>
-        <span className="text-[0.875rem] block">Category ID: {categoryId}</span>
+        <span className="text-[0.875rem] block">{text}</span>
+        <span className="text-[0.875rem] block"></span>
       </div>
     </div>
   );

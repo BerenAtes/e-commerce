@@ -11,6 +11,9 @@ import {
   NavLink,
 } from "reactstrap";
 import ProductListCard from "./ProductListCard";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Loader } from "react-loader-spinner";
+
 const CartDropdown = () => {
   const categories = useSelector((store) => store.global.categories);
   const dispatch = useDispatch();
@@ -21,6 +24,7 @@ const CartDropdown = () => {
   const dropdownRef = useRef(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   console.log("categories", categories);
   const categoriesWomen = categories.filter(
@@ -69,7 +73,7 @@ const CartDropdown = () => {
 
   const handleCategoryClick = async (categoryId) => {
     try {
-      // Kategoriye göre ürünleri getir
+      setLoading(true);
       const response = await axios.get(
         `https://workintech-fe-ecommerce.onrender.com/products?category=${categoryId}`
       );
@@ -77,6 +81,8 @@ const CartDropdown = () => {
       setSelectedCategory(categoryId);
     } catch (error) {
       console.error("Error fetching products by category:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -114,7 +120,13 @@ const CartDropdown = () => {
             <div className="flex flex-row">
               <div className="flex flex-col">
                 <DropdownItem header className="ml-2">
-                  KADIN
+                  <Link
+                    to={`/categories/${
+                      categoriesWomen.length > 0 ? "kadin" : "erkek"
+                    }`}
+                  >
+                    KADIN
+                  </Link>
                 </DropdownItem>
                 <hr />
                 {categoriesWomen.map((category, i) => (
@@ -135,7 +147,13 @@ const CartDropdown = () => {
               </div>
               <div className="flex flex-col">
                 <DropdownItem header className="ml-2">
-                  ERKEK
+                  <Link
+                    to={`/categories/${
+                      categoriesMen.length > 0 ? "erkek" : "kadin"
+                    }`}
+                  >
+                    ERKEK
+                  </Link>
                 </DropdownItem>
                 <hr />
                 {categoriesMen.map((category, i) => (
@@ -160,20 +178,24 @@ const CartDropdown = () => {
       </Dropdown>
 
       <div className="flex flex-wrap justify-center gap-y-4 md:flex-row md:flex-nowrap w-full mt-8">
-        {products.map((product) => (
-          <div
-            key={product.id}
-            className={`w-full sm:w-auto ${
-              selectedCategory === product.category_id ? "selected" : ""
-            } grow relative`}
-          >
-            <ProductListCard
-              imgUrl={product.images[0].url}
-              title={product.name}
-              text={`(${product.stock} Items)`}
-            />
-          </div>
-        ))}
+        {loading ? ( // loading true ise spinner gösterilecek
+          <Loader type="Puff" color="#00BFFF" height={100} width={100} />
+        ) : (
+          products.map((product) => (
+            <div
+              key={product.id}
+              className={`w-full sm:w-auto ${
+                selectedCategory === product.category_id ? "selected" : ""
+              } grow relative`}
+            >
+              <ProductListCard
+                imgUrl={product.images[0].url}
+                title={product.name}
+                text={`(${product.stock} Items)`}
+              />
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

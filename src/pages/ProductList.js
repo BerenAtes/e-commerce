@@ -24,6 +24,8 @@ export default function ProductList() {
   const [selectedCategoryId, setSelectedCategoryId] = useState();
   const { gender, categorySlug } = useParams();
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortOption, setSortOption] = useState("Popularity");
   const fetchCategories = async () => {
     try {
       const response = await axios.get(
@@ -51,6 +53,16 @@ export default function ProductList() {
       return [];
     }
   };
+  const handleSearch = (event) => {
+    setSearchQuery(event.target.value);
+  };
+  useEffect(() => {
+    const filteredProducts = products.filter((product) =>
+      product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setFilteredProducts(filteredProducts);
+  }, [searchQuery, products]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -84,6 +96,25 @@ export default function ProductList() {
 
     fetchData();
   }, []);
+  const sortProducts = (option) => {
+    switch (option) {
+      case "Price High-Low":
+        setProducts([...products].sort((a, b) => b.price - a.price));
+        break;
+      case "Price Low-High":
+        setProducts([...products].sort((a, b) => a.price - b.price));
+        break;
+      case "Popularity":
+        setProducts([...products].sort((a, b) => b.rating - a.rating));
+        break;
+      default:
+        break;
+    }
+  };
+
+  useEffect(() => {
+    sortProducts(sortOption);
+  }, [sortOption]);
 
   useEffect(() => {
     const fetchProductsByCategory = async () => {
@@ -197,12 +228,13 @@ export default function ProductList() {
             <br />
             <PagesPath />
           </div>
+
           <div className="flex flex-wrap justify-center gap-y-4 md:flex-row md:flex-nowrap">
             {selectedCategories.map((category, index) => (
               <div className="flex w-full md:w-1/4 lg:w-1/6 p-2" key={index}>
                 <div className="flex flex-col justify-between w-full h-full">
                   <Link
-                    to={`/shop/${
+                    to={`/shopping/${
                       category.gender === "e" ? "erkek" : "kadin"
                     }/${slugify(category.title, {
                       lower: true,
@@ -214,7 +246,7 @@ export default function ProductList() {
                       gender={category.gender}
                       imgUrl={category.img}
                       title={category.title}
-                      text={`5 Items in ${category.title}`}
+                      text={` ${category.title}`}
                       className="w-full mb-1"
                       style={{ objectFit: "cover" }}
                       onClick={() => setSelectedCategoryId(category.id)}
@@ -249,13 +281,21 @@ export default function ProductList() {
             <div className="flex">
               <select
                 className="mr-[1rem] pr-[.5rem] pl-[.5rem] text-[0.875rem] border-[1px] rounded-[5px] border-[#DDDDDD] bg-[#F9F9F9]"
-                name="cars"
-                id="cars"
+                name="sortOption"
+                value={sortOption}
+                onChange={(e) => setSortOption(e.target.value)}
               >
                 <option value="Popularity">Popularity</option>
                 <option value="Price High-Low">Price High-Low</option>
                 <option value="Price Low-High">Price Low-High</option>
               </select>
+              <input
+                type="text"
+                placeholder="Search products..."
+                value={searchQuery}
+                onChange={handleSearch}
+                className="border border-gray-300 rounded-md px-3 py-2 w-full md:w-auto mr-[1rem]"
+              />
               <button className="font-bold btn-small btn-primary text-[0.875rem] pl-[.1rem]">
                 Filter
               </button>
@@ -263,7 +303,7 @@ export default function ProductList() {
           </div>
           <div className="flex justify-center items-center w-full">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-16 my-8 md:my-16 py-4 gap-[2rem]">
-              {products.map((product) => (
+              {filteredProducts.map((product) => (
                 <Link
                   to={`/shop/${gender}/${selectedCategoryId}`} // İlgili kategoriye yönlendirme
                   className="relative overflow-hidden"

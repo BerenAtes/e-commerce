@@ -16,6 +16,8 @@ import btn1 from "../assets/icons/1btn.svg";
 import btn2 from "../assets/icons/2btn.svg";
 import btn3 from "../assets/icons/3btn.svg";
 import next from "../assets/icons/Next.svg";
+import "../components/Pagination.js";
+import Pagination from "../components/Pagination.js";
 
 export default function ProductList() {
   const [products, setProducts] = useState([]);
@@ -27,6 +29,13 @@ export default function ProductList() {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOption, setSortOption] = useState("Popularity");
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const startIndex = (currentPage - 1) * 20;
+  const endIndex = startIndex + 20;
+  const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
 
   const fetchCategories = async () => {
     try {
@@ -58,6 +67,37 @@ export default function ProductList() {
   const handleSearch = (event) => {
     setSearchQuery(event.target.value);
   };
+  const fetchProducts = async (page) => {
+    try {
+      const response = await axios.get(
+        `https://workintech-fe-ecommerce.onrender.com/products?page=${page}&limit=20`
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      return [];
+    }
+  };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const productsResponse = await fetchProducts(page);
+        const allProducts = productsResponse.products;
+        setProducts(allProducts);
+        setHasMore(allProducts.length === 20);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, [page]);
+  const nextPage = () => {
+    setPage(page + 1);
+  };
+
   useEffect(() => {
     const filteredProducts = products.filter((product) =>
       product.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -310,7 +350,7 @@ export default function ProductList() {
           </div>
           <div className="flex justify-center items-center w-full">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-16 my-8 md:my-16 py-4 gap-[2rem]">
-              {filteredProducts.map((product) => (
+              {paginatedProducts.map((product) => (
                 <Link
                   to={`/shop/${gender}/${selectedCategoryId}`} // İlgili kategoriye yönlendirme
                   className="relative overflow-hidden"
@@ -325,14 +365,25 @@ export default function ProductList() {
                     price={product.price}
                     discountedPrice={product.discountedPrice}
                     rating={product.rating}
-                    productId={product.id} // productId'yi de iletiyoruz
-                    categoryId={selectedCategoryId} // categoryId'yi de iletiyoruz
+                    productId={product.id}
+                    categoryId={selectedCategoryId}
                   />
                 </Link>
               ))}
             </div>
           </div>
         </section>
+        <div>
+          {" "}
+          <Pagination
+            className="gap-[2rem]"
+            currentPage={currentPage}
+            totalPages={Math.ceil(filteredProducts.length / 20)}
+            onNextPage={() => setCurrentPage(currentPage + 1)}
+            onPrevPage={() => setCurrentPage(currentPage - 1)}
+            onPage={(page) => setCurrentPage(page)}
+          />
+        </div>
       </div>
       <Logos />
     </>

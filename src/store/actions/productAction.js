@@ -1,7 +1,7 @@
 import { AxiosInstance } from "../../components/Api/api";
 
 export const setProductList = (productList) => ({
-  type: "SET_PRODUCTS",
+  type: "SET_PRODUCT_LIST",
   payload: productList,
 });
 
@@ -13,6 +13,16 @@ export const setTotalProductCount = (total) => ({
 export const setPageCount = (count) => ({
   type: "SET_PAGE_COUNT",
   payload: count,
+});
+
+export const setFilter = (filter) => ({
+  type: "SET_FILTER",
+  payload: filter,
+});
+
+export const setSort = (sort) => ({
+  type: "SET_SORT",
+  payload: sort,
 });
 
 export const setActivePage = (page) => ({

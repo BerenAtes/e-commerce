@@ -11,6 +11,7 @@ import { userReducer } from "./reducers/userReducer";
 import { productReducer } from "./reducers/productReducer";
 import { shoppingCardReducer } from "./reducers/shoppingCardReducer";
 import { storeReducer } from "./reducers/storeReducer";
+import { filterReducer } from "./reducers/productReducer";
 
 export const reducers = combineReducers({
   global: globalReducer,
@@ -18,6 +19,7 @@ export const reducers = combineReducers({
   product: productReducer,
   shoppingCart: shoppingCardReducer,
   store: storeReducer,
+  filter: filterReducer,
 });
 
 export const store = createStore(reducers, applyMiddleware(thunk, logger));

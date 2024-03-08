@@ -10,43 +10,155 @@ import slugify from "slugify";
 
 import views1 from "../assets/icons/views1.svg";
 import views2 from "../assets/icons/views2.svg";
+
+import first from "../assets/icons/First.svg";
+import btn1 from "../assets/icons/1btn.svg";
+import btn2 from "../assets/icons/2btn.svg";
+import btn3 from "../assets/icons/3btn.svg";
+import next from "../assets/icons/Next.svg";
+import "../components/Pagination.js";
 import Pagination from "../components/Pagination.js";
 
 export default function ProductList() {
   const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [selectedCategoryId, setSelectedCategoryId] = useState(null);
   const [selectedCategories, setSelectedCategories] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [filter, setFilter] = useState("");
-  const [sort, setSort] = useState("");
-
+  const [categories, setCategories] = useState([]);
+  const [selectedCategoryId, setSelectedCategoryId] = useState();
   const { gender, categorySlug } = useParams();
 
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortOption, setSortOption] = useState("Popularity");
+  const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const startIndex = (currentPage - 1) * 20;
+  const endIndex = startIndex + 20;
+
+  const fetchCategories = async () => {
+    try {
+      const response = await axios.get(
+        "https://workintech-fe-ecommerce.onrender.com/categories"
+      );
+      const allCategories = response.data;
+      return allCategories;
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+      return [];
+    }
+  };
+  const fetchProductsByCategory = async (categoryId) => {
+    try {
+      const response = await axios.get(
+        `https://workintech-fe-ecommerce.onrender.com/products?category=${categoryId}`
+      );
+      const products = response.data.products;
+      return products;
+    } catch (error) {
+      console.error(
+        `Error fetching products for category ${categoryId}:`,
+        error
+      );
+      return [];
+    }
+  };
+  const handleSearch = (event) => {
+    setSearchQuery(event.target.value);
+  };
+  const fetchProducts = async (page) => {
+    try {
+      const response = await axios.get(
+        `https://workintech-fe-ecommerce.onrender.com/products?page=${page}&limit=20`
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      return [];
+    }
+  };
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(
-          "https://workintech-fe-ecommerce.onrender.com/products"
-        );
-        setProducts(response.data.products);
-
-        const categoriesResponse = await axios.get(
-          "https://workintech-fe-ecommerce.onrender.com/categories"
-        );
-        setCategories(categoriesResponse.data);
+        const productsResponse = await fetchProducts(page);
+        const allProducts = productsResponse.products;
+        setProducts(allProducts);
 
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
-        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [page]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://workintech-fe-ecommerce.onrender.com/products"
+        );
+        setProducts(response.data.products);
+      } catch (error) {
+        console.error("Error fetching products:", error);
       }
     };
 
     fetchData();
   }, []);
+  const sortProducts = (option) => {
+    switch (option) {
+      case "Price High-Low":
+        setProducts([...products].sort((a, b) => b.price - a.price));
+        break;
+      case "Price Low-High":
+        setProducts([...products].sort((a, b) => a.price - b.price));
+        break;
+      case "Popularity":
+        setProducts([...products].sort((a, b) => b.rating - a.rating));
+        break;
+      default:
+        break;
+    }
+  };
 
+  useEffect(() => {
+    sortProducts(sortOption);
+  }, [sortOption]);
+
+  useEffect(() => {
+    const fetchProductsByCategory = async () => {
+      try {
+        const response = await axios.get(
+          `https://workintech-fe-ecommerce.onrender.com/products?category=${selectedCategoryId}`
+        );
+        setProducts(response.data.products);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    if (selectedCategoryId) {
+      fetchProductsByCategory();
+    }
+  }, [selectedCategoryId]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get(
+          "https://workintech-fe-ecommerce.onrender.com/categories"
+        );
+        setCategories(response.data);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+  console.log("categories:", categories);
   const selectTopCategories = () => {
     if (categories && categories.length > 0) {
       const sortedCategories = [...categories].sort(
@@ -56,10 +168,41 @@ export default function ProductList() {
       setSelectedCategories(topCategories);
     }
   };
+  useEffect(() => {
+    const fetchProductsByCategory = async (categoryId) => {
+      try {
+        const response = await axios.get(
+          `https://workintech-fe-ecommerce.onrender.com/products?category=${categoryId}`
+        );
+        setProducts(response.data.products);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
 
+    if (selectedCategoryId !== null) {
+      fetchProductsByCategory(selectedCategoryId);
+    }
+  }, [selectedCategoryId]);
   useEffect(() => {
     selectTopCategories();
   }, [categories]);
+  useEffect(() => {
+    const fetchProductsByCategory = async (categoryId) => {
+      try {
+        const response = await axios.get(
+          `https://workintech-fe-ecommerce.onrender.com/products?category=${categoryId}`
+        );
+        setProducts(response.data.products);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    if (selectedCategoryId) {
+      fetchProductsByCategory(selectedCategoryId);
+    }
+  }, [selectedCategoryId]);
 
   useEffect(() => {
     if (categorySlug && categories.length > 0) {
@@ -74,44 +217,10 @@ export default function ProductList() {
     }
   }, [categorySlug, categories, gender]);
 
-  useEffect(() => {
-    const fetchProductsByCategory = async () => {
-      if (selectedCategoryId) {
-        try {
-          let url = `https://workintech-fe-ecommerce.onrender.com/products?category=${selectedCategoryId}`;
-
-          if (sort) {
-            url += `&sort=${sort}`;
-          }
-
-          const response = await axios.get(url);
-          setProducts(response.data.products);
-        } catch (error) {
-          console.error("Error fetching products:", error);
-        }
-      }
-    };
-
-    fetchProductsByCategory();
-  }, [selectedCategoryId, filter]);
-
-  const handleFilter = async () => {
-    try {
-      let url = `https://workintech-fe-ecommerce.onrender.com/products?category=${selectedCategoryId}`;
-
-      if (filter) {
-        url += `&filter=${filter}`;
-      }
-      if (sort) {
-        url += `&sort=${sort}`;
-      }
-
-      const response = await axios.get(url);
-      setProducts(response.data.products);
-    } catch (error) {
-      console.error("Error fetching products:", error);
-    }
-  };
+  console.log("Selected Category ID:", selectedCategoryId);
+  console.log("Products:", products);
+  console.log("Gender:", gender);
+  console.log("Category Slug:", categorySlug);
 
   return (
     <>
@@ -181,31 +290,21 @@ export default function ProductList() {
               <select
                 className="mr-[1rem] pr-[.5rem] pl-[.5rem] text-[0.875rem] border-[1px] rounded-[5px] border-[#DDDDDD] bg-[#F9F9F9]"
                 name="sortOption"
-                onChange={(e) => {
-                  setSort(e.target.value);
-                  if (
-                    e.target.value === "price:asc" ||
-                    e.target.value === "price:desc"
-                  ) {
-                    handleFilter();
-                  }
-                }}
+                value={sortOption}
+                onChange={(e) => setSortOption(e.target.value)}
               >
-                <option value="">Select Sort</option>
-                <option value="price:asc">Price Low-High</option>
-                <option value="price:desc">Price High-Low</option>
+                <option value="Popularity">Popularity</option>
+                <option value="Price High-Low">Price High-Low</option>
+                <option value="Price Low-High">Price Low-High</option>
               </select>
               <input
                 type="text"
                 placeholder="Search products..."
+                value={searchQuery}
+                onChange={handleSearch}
                 className="border border-gray-300 rounded-md px-3 py-2 w-full md:w-auto mr-[1rem]"
-                value={filter}
-                onChange={(e) => setFilter(e.target.value)}
               />
-              <button
-                className="font-bold btn-small btn-primary text-[0.875rem] pl-[.1rem]"
-                onClick={handleFilter}
-              >
+              <button className="font-bold btn-small btn-primary text-[0.875rem] pl-[.1rem]">
                 Filter
               </button>
             </div>
@@ -214,7 +313,7 @@ export default function ProductList() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-16 my-8 md:my-16 py-4 gap-[2rem]">
               {products.map((product) => (
                 <Link
-                  to={`/shop/${gender}/${selectedCategoryId}`}
+                  to={`/shop/${gender}/${selectedCategoryId}`} // İlgili kategoriye yönlendirme
                   className="relative overflow-hidden"
                   key={product.id}
                 >
@@ -236,7 +335,14 @@ export default function ProductList() {
           </div>
         </section>
         <div>
-          <Pagination className="gap-[2rem]" />
+          {" "}
+          <Pagination
+            className="gap-[2rem]"
+            currentPage={currentPage}
+            onNextPage={() => setCurrentPage(currentPage + 1)}
+            onPrevPage={() => setCurrentPage(currentPage - 1)}
+            onPage={(page) => setCurrentPage(page)}
+          />
         </div>
       </div>
       <Logos />

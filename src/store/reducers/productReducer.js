@@ -1,3 +1,19 @@
+const initialState = {
+  filter: "",
+  sort: "",
+};
+
+export const filterReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "SET_FILTER":
+      return { ...state, filter: action.payload };
+    case "SET_SORT":
+      return { ...state, sort: action.payload };
+    default:
+      return state;
+  }
+};
+
 export const FETCH_STATES = {
   notFetched: "NOT_FETCHED",
   fetching: "FETCHING",
@@ -33,9 +49,3 @@ export function productReducer(state = productInitialState, action) {
       return state;
   }
 }
-
-//- product list: {Object Array}
-//- total product count: {Number}
-//- page count: {Number}
-//- active page: {Number}
-//- fetch state: {String} “NOT_FETCHED” | “FETCHING” | “FETCHED” | “FAILED”//
